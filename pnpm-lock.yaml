@@ -9199,9 +9199,3 @@ snapshots:
       zod: 3.25.76
 
   zod@3.25.76: {}
-allowBuilds:
-  esbuild: true
-  fsevents: true
-  sharp: true
-  unrs-resolver: true
-  workerd: true
