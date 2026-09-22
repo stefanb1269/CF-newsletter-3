@@ -40,6 +40,16 @@ Never overwrite or modify a previous issue merely to create a new one. Each publ
 
 No environment variables are required for the initial site.
 
+## Issue 2 and future editions
+
+Follow [`ISSUE-2-CHECKLIST.md`](./ISSUE-2-CHECKLIST.md). It includes the data audit, archive-safety rules, required route checks, and the exact GitHub/Vercel publishing sequence established after the first deployment.
+
+Deployment safeguards are committed to the repository:
+
+- `pnpm-workspace.yaml` approves only the dependency build scripts required by this project.
+- `vercel.json` pins the Next.js framework, install command, and build command.
+- `.github/workflows/verify.yml` runs a clean production build on every push and pull request.
+
 ### Create and preview an issue
 
 1. Add a new issue object and its issue-specific image folder as described above.
@@ -87,3 +97,7 @@ After the first deployment, every successful push to `main` automatically create
 ### Roll back a broken issue
 
 In Vercel, open **Deployments**, find the last known-good production deployment, open its menu, and choose **Promote to Production**. Then fix the problem in GitHub and push a new commit. Promoting an older deployment restores the live site quickly, but it does not remove the bad commit from Git history.
+
+## Week 2 publishing note
+
+The September 22 edition is in `content/issues.ts` as `2026-week-02`; its original image is in `public/issues/2026-week-02/`. The Week 1 object and `public/issues/2026-week-01/` are preserved. The latest issue is the first item in `issues`, which drives the homepage and archive. Upload the **contents** of this project folder directly to the existing GitHub repository root, beside `package.json`. Replace matching files and add the new image folder; do not upload the ZIP itself or an enclosing folder. Keep `pnpm-lock.yaml`, `pnpm-workspace.yaml`, and `vercel.json` together at that root. After the `main` commit, Vercel will build the new homepage and retain `/issues/2026-week-01`.
