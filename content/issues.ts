@@ -3,6 +3,7 @@ export type Standing = { rank: number; team: string; record: string; points: num
 export type HistoryRow = { manager: string; club: string; titles: string; playoffs: string; note: string };
 export type Issue = {
   slug: string; issueNumber: number; season: number; week: string; date: string;
+  median: string;
   kicker: string; headline: string; deck: string; hero: string; heroAlt: string; caption: string;
   lead: string[]; quote: string; quoteBy: string;
   stories: { section: string; headline: string; body: string }[];
@@ -15,7 +16,75 @@ export type Issue = {
 };
 
 export const issues: Issue[] = [{
+  slug: "2026-week-03", issueNumber: 3, season: 2026, week: "Week 3", date: "September 29, 2026",
+  median: "124.225",
+  kicker: "Year XVI · Week Three · Median Line 124.225",
+  headline: "The Great Escape",
+  deck: "Jon Naval beats RI Lion’s by 0.55—and clears the weekly median by an even thinner 0.275—to steal a perfect 2–0 week.",
+  hero: "/issues/2026-week-03/the-great-escape.png",
+  heroAlt: "Vintage sports illustration of a baby-faced football runner escaping through a narrow opening as an orange lion gives chase",
+  caption: "Two escapes, each by less than a point: Let’s Cut to the Chase survived RI Lion’s 124.50–123.95 and edged the 124.225 median. Chronicle illustration inspired by the clubs’ baby and lion imagery.",
+  lead: [
+    "Jon Naval did not merely win in Week 3. He escaped twice. Let’s Cut to the Chase slipped past RI Lion’s 124.50–123.95, the closest matchup of the season, then cleared the 124.225 weekly median by only 0.275. A few tenths of a point separated a 2–0 week from a split—or something worse.",
+    "Dak Prescott scored 24.70, Ja’Marr Chase added 24.80 and Kyren Williams delivered 21.80. Those three performances were just enough to overcome Jared Goff’s 26.05 and Harold Fannin’s 24.10 for Nico Erausquin. Even Green Bay’s minus-two defense could not finish Jon off.",
+    "The double escape lifted Jon to 4–2 and fourth place, completing a remarkable two-week recovery from his 96.95-point opening disaster. Nico fell to 2–4 despite missing the median by only 0.275 himself. In the league’s new scoring system, the narrowest margins can alter two results at once."
+  ],
+  quote: "Half a point won the matchup. Half of that cleared the median.", quoteBy: "The Chronicle sports desk",
+  stories: [
+    { section: "Unbeaten Watch", headline: "Perfect Six", body: "Nate Watson remained the league’s only perfect club, beating Taylor Park Boys 163.30–151.15 in the week’s highest-scoring matchup. Gibbs Me Her Kittle moved to 6–0 and leads the league with 469.85 points. Stefan Balestra lost despite producing the second-highest score of Week 3, but the median win limited the damage to a 1–1 week." },
+    { section: "Cruelty Department", headline: "151.15 and Still a Loss", body: "Taylor Park Boys would have beaten ten of eleven possible opponents. Instead, Stefan drew Nate’s league-high 163.30. The 314.45 combined points were the most in any Week 3 matchup, and Stefan’s 151.15 was the highest losing score of the week." },
+    { section: "Injury Ward", headline: "Achane Lost for the Season", body: "Jake Brierly improved to 5–1 with a 142.90–112.15 win over Show Me Your Tet, but the victory carried a severe cost: De’Von Achane tore his left ACL after scoring 1.70 and is out for the season. Achanesaw Massacre now has to replace a cornerstone while protecting second place." },
+    { section: "Photo Finish", headline: "Darren Dethrones the Champ", body: "Cooking Up Collusion survived defending champion Team PatSmear 148.25–144.00. Brock Purdy’s 40.25 and a balanced backfield gave Darren Aglione a 2–0 week. Pat Brown posted the fourth-highest score and still lost, salvaging only the median point." },
+    { section: "Basement Breakthrough", headline: "The Price Finally Is Right", body: "Anthony Innamorati earned his first head-to-head win, 117.10–103.90 over Colonel Corn. Brock Bowers erupted for 31.60 and Minnesota’s defense added 29.00. The score remained below the median, leaving Anthony 1–5 rather than 2–4." },
+    { section: "Family Business", headline: "Dave Sr. Wins the Campbell Bowl", body: "Drake It Till You Make It beat Brown Rice 119.55–114.60 behind Bijan Robinson’s 41.30 and Matthew Golden’s 25.00. Dave Campbell Jr. left Sam Darnold’s 39.45 on the bench and lost by 4.95. Neither side reached the median." },
+    { section: "Transaction Desk", headline: "Giants Turn to McCarthy", body: "With Jaxson Dart undergoing season-ending knee surgery, the Giants acquired quarterback J.J. McCarthy from Minnesota for a 2027 fifth-round pick. The move matters most to Johnny No, who had Dart on his bench, while Jameis Winston remains the immediate starter." },
+    { section: "Health Watch", headline: "Injuries Hit Colonel Corn", body: "Johnny’s lineup absorbed ankle and rib injuries to Justin Jefferson and Mike Evans. Anthony also lost Breece Hall to a quad injury and Jalen Coker to a quad strain. Early reports offered more optimism for Jefferson, Evans and Coker than for Achane, but Week 4 availability remains unsettled." }
+  ],
+  briefs: [
+    { headline: "Four clubs sweep", body: "Nate, Jake, Darren and Jon each won both the head-to-head matchup and the median result." },
+    { headline: "Jon’s double razor", body: "The Chase won by 0.55 and beat the median by 0.275. Nico lost the same two decisions by those exact margins." },
+    { headline: "Bench warrant", body: "Dave Jr. started Bo Nix’s 28.00 while Sam Darnold scored 39.45 on the bench. Pat left Matthew Stafford’s 34.80 behind Lamar Jackson’s 24.30." },
+    { headline: "Quarterback injuries linger", body: "Jaxson Dart’s season is over after knee surgery, while Caleb Williams and Jayden Daniels remain part of the wider quarterback availability story." }
+  ],
+  results: [
+    { away: "Gibbs Me Her Kittle", awayScore: 163.30, home: "Taylor Park Boys", homeScore: 151.15, note: "Week-high score · 314.45 combined" },
+    { away: "Cooking Up Collusion", awayScore: 148.25, home: "Team PatSmear", homeScore: 144.00, note: "Both cleared the median" },
+    { away: "Achanesaw Massacre", awayScore: 142.90, home: "Show Me Your Tet", homeScore: 112.15, note: "Largest margin · 30.75" },
+    { away: "Let’s Cut to the Chase", awayScore: 124.50, home: "RI Lion’s", homeScore: 123.95, note: "Closest game · Jon clears median by 0.275" },
+    { away: "Drake It Till You Make It", awayScore: 119.55, home: "Brown Rice", homeScore: 114.60, note: "Campbell Bowl · 4.95" },
+    { away: "The Price Is Right", awayScore: 117.10, home: "Colonel Corn", homeScore: 103.90, note: "Anthony’s first head-to-head win" }
+  ],
+  standings: [
+    [1,"Gibbs Me Her Kittle","6–0",469.85,383.45],[2,"Achanesaw Massacre","5–1",448.90,334.95],[3,"Taylor Park Boys","4–2",438.30,379.55],[4,"Let’s Cut to the Chase","4–2",378.60,423.35],[5,"Team PatSmear","3–3",420.35,480.30],[6,"Cooking Up Collusion","3–3",405.15,425.50],[7,"RI Lion’s","2–4",409.90,432.65],[8,"Colonel Corn","2–4",405.99,413.05],[9,"Show Me Your Tet","2–4",398.60,397.40],[10,"Brown Rice","2–4",368.15,404.70],[11,"Drake It Till You Make It","2–4",352.75,369.95],[12,"The Price Is Right","1–5",331.90,383.60]
+  ].map(([rank,team,record,points,pointsAgainst]) => ({rank:rank as number,team:team as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number})),
+  rankings: [
+    { rank: 1, team: "Gibbs Me Her Kittle", blurb: "The lone 6–0 club also owns the league’s best Week 3 score and most total points." },
+    { rank: 2, team: "Achanesaw Massacre", blurb: "Jake is 5–1, but Achane’s ACL tear creates the season’s biggest roster test." },
+    { rank: 3, team: "Taylor Park Boys", blurb: "A 151.15-point loss says more about the opponent than Stefan’s lineup." },
+    { rank: 4, team: "Let’s Cut to the Chase", blurb: "Four straight scoring wins and the week’s most improbable double escape." },
+    { rank: 5, team: "Team PatSmear", blurb: "The defending champion has 420.35 points despite a .500 record." }
+  ],
+  awards: [
+    { label: "Manager of the Week", winner: "Jon Naval", detail: "Won by 0.55, cleared the median by 0.275 and escaped Week 3 with two victories." },
+    { label: "High Score", winner: "Nate Watson", detail: "163.30 points, another sweep and the league’s only 6–0 record." },
+    { label: "Cruelest Defeat", winner: "Stefan Balestra", detail: "Scored 151.15—second-most in the league—and lost by 12.15." },
+    { label: "Biggest Blowout", winner: "Jake Brierly", detail: "Beat Show Me Your Tet by 30.75 despite losing Achane during the game." },
+    { label: "Player of the Week", winner: "Bijan Robinson", detail: "41.30 points powered Dave Sr. to victory in the Campbell Bowl." },
+    { label: "Bench Crime", winner: "Dave Campbell Jr.", detail: "Sam Darnold scored 39.45 on the bench in a 4.95-point loss." },
+    { label: "First Taste of Victory", winner: "Anthony Innamorati", detail: "The Price Is Right earned its first matchup win behind Bowers and Minnesota." },
+    { label: "Injury Misfortune", winner: "Johnny No", detail: "Justin Jefferson and Mike Evans both left with injuries in the same defeat." }
+  ],
+  leaders: [
+    { position: "QB", player: "Brock Purdy", team: "Cooking Up Collusion", points: 40.25 },
+    { position: "RB", player: "Bijan Robinson", team: "Drake It Till You Make It", points: 41.30 },
+    { position: "WR", player: "Jaxon Smith-Njigba", team: "Show Me Your Tet", points: 39.50 },
+    { position: "TE", player: "Brock Bowers", team: "The Price Is Right", points: 31.60 },
+    { position: "DEF", player: "Minnesota", team: "The Price Is Right", points: 29.00 }
+  ],
+  history: []
+},{
   slug: "2026-week-02", issueNumber: 2, season: 2026, week: "Week 2", date: "September 22, 2026",
+  median: "134.575",
   kicker: "Year XVI · Week Two · Median Line 134.575",
   headline: "The Lion’s Share",
   deck: "Nico Erausquin roars to the week’s highest score, 159.05, and beats Colonel Corn even after Josh Allen drops 48.30.",
@@ -79,6 +148,7 @@ export const issues: Issue[] = [{
   history: []
 },{
   slug: "2026-week-01", issueNumber: 1, season: 2026, week: "Week 1", date: "September 15, 2026",
+  median: "135.90",
   kicker: "Year XVI · Opening Week · Median Line 135.90",
   headline: "Massacre at the Farm",
   deck: "Jake Brierly opens the league’s 16th season with 180.95 points, the week’s high score and an unmistakable warning to the other eleven clubs.",
