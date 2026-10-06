@@ -9,13 +9,115 @@ export type Issue = {
   stories: { section: string; headline: string; body: string }[];
   briefs: { headline: string; body: string }[];
   results: Result[]; standings: Standing[];
-  rankings: { rank: number; team: string; blurb: string }[];
+  rankings: { rank: number; team: string; blurb: string; movement?: string }[];
   awards: { label: string; winner: string; detail: string }[];
   leaders: { position: string; player: string; team: string; points: number }[];
   history: HistoryRow[];
+  spotlight?: { kicker: string; headline: string; deck: string; body: string[]; stats: { value: string; label: string }[] };
+  photoFeature?: { kicker: string; headline: string; image: string; alt: string; caption: string; body: string };
+  panicMeter?: { team: string; level: string; score: number; detail: string }[];
 };
 
 export const issues: Issue[] = [{
+  slug: "2026-week-04", issueNumber: 4, season: 2026, week: "Week 4", date: "October 6, 2026",
+  median: "128.75",
+  kicker: "Year XVI · Week Four · Median Line 128.75",
+  headline: "London Calling",
+  deck: "Taylor Park Boys conquer the reigning champion from across the Atlantic, scoring 195.95 and taking the league’s total-points lead.",
+  hero: "/issues/2026-week-04/london-calling.png",
+  heroAlt: "Vintage sports illustration of a blue-and-white football hero defeating a pink mascot in a London stadium",
+  caption: "Taylor Park Boys routed Team PatSmear 195.95–156.90 while Stefan Balestra watched the Colts in London. Chronicle illustration inspired by the clubs’ blue-and-white and pink mascot imagery.",
+  lead: [
+    "London called, and Taylor Park Boys answered with the league’s second-largest score of Week 4. Managing from across the Atlantic while attending the Colts game with Kat, Stefan Balestra assembled 195.95 points and beat reigning champion Pat Brown’s Team PatSmear by 39.05.",
+    "The attack came from everywhere. Kyle Monangai scored 32.00, Bryce Young delivered 30.75, Tee Higgins supplied 30.70, Chris Olave added 23.60 and Jonathan Taylor scored 22.70. Five starters cleared 22 points, leaving even CeeDee Lamb’s extraordinary 45.30 unable to keep Pat close.",
+    "The 2–0 week moved Taylor Park Boys to 6–2 and, more importantly, to a league-leading 634.25 points. Nate Watson and Jake Brierly remain one scoring victory ahead at 7–1, but neither can claim the same offensive total. The standings say third. The scoreboard says the title race now runs through Taylor Park."
+  ],
+  quote: "Across the pond, above the field—and now above the league in points.", quoteBy: "The Chronicle sports desk",
+  spotlight: {
+    kicker: "The Week’s Other Earthquake",
+    headline: "TETs OUT",
+    deck: "Derric Vigeant breaks the 200-point barrier as Show Me Your Tet detonates for 204.75.",
+    body: [
+      "The first 200-point performance of the season belonged to Show Me Your Tet. Tetairoa McMillan erupted for 49.20, Nico Collins added 34.80, Javonte Williams scored 31.30, Sam LaPorta delivered 22.40 and Quinshon Judkins supplied 21.60.",
+      "Dave Campbell Sr. scored 161.95—the week’s third-highest total—and still lost by 42.80. Their 366.70 combined points made this the highest-scoring matchup of the season. Derric rose four places in the standings to fifth and returned to .500 at 4–4."
+    ],
+    stats: [{ value: "204.75", label: "Derric’s score" }, { value: "49.20", label: "Tetairoa McMillan" }, { value: "366.70", label: "Combined points" }, { value: "+4", label: "Places climbed" }]
+  },
+  photoFeature: {
+    kicker: "Postcard From England",
+    headline: "Across the Pond",
+    image: "/issues/2026-week-04/stefan-kat-london.jpeg",
+    alt: "Stefan and Kat attending the Colts game in a packed London stadium",
+    caption: "Stefan and Kat at the NFL London game as Taylor Park Boys produced 195.95 points back home.",
+    body: "The Taylor Park Boys manager watched the Colts in London while his fantasy lineup dismantled the defending champion. The international setting supplied a fitting backdrop for the club’s biggest score of the season and its ascent to the top of the points table."
+  },
+  stories: [
+    { section: "Top of the Table", headline: "Jake Catches Nate at 7–1", body: "Achanesaw Massacre beat Colonel Corn 132.05–125.35 and cleared the median. Nate beat Brown Rice 111.65–84.10 but missed the 128.75 line, ending his perfect scoring record. Nate remains first by 0.55 total points, while Jake has won four consecutive scoring decisions." },
+    { section: "Collision Report", headline: "Darren Rolls to Five Straight", body: "Cooking Up Collusion beat RI Lion’s 140.80–102.50 behind Kenneth Walker’s 36.90, Brock Purdy’s 25.80 and Jameson Williams’ 20.20. Darren climbed to fourth at 5–3 while Nico absorbed a fourth consecutive scoring loss." },
+    { section: "Basement Drama", headline: "The Price Wins Again", body: "Anthony Innamorati edged Jon Naval 125.45–121.30 for a second consecutive head-to-head victory. Both clubs missed the median, leaving The Price Is Right at 2–6 and Let’s Cut to the Chase at 4–4." },
+    { section: "Injury Ward", headline: "Stars Leave a Trail of Doubt", body: "Lamar Jackson injured his ankle, Ja’Marr Chase entered concussion protocol and Tee Higgins aggravated his groin. Saquon Barkley hurt his hamstring, DJ Moore injured his knee and Rashee Rice left with a hamstring problem. Week 5 lineup decisions will begin with the medical reports." },
+    { section: "Quarterback Desk", headline: "Maye Leads the Comeback", body: "Drake Maye threw for 269 yards and three touchdowns, rushed for 54 more and scored 31.85 for Dave Sr. His late NFL comeback against Buffalo produced an excellent fantasy line, though it arrived in the wrong week to survive Derric’s eruption." },
+    { section: "Volume Department", headline: "Targets, Targets Everywhere", body: "Garrett Wilson drew 18 targets for Jake, Malik Nabers commanded 15 for Dave Sr. and CeeDee Lamb caught 17 passes for Pat. Kyren Williams handled every Rams running-back snap and scored 36.70 for Jon." },
+    { section: "Cold September", headline: "Kelce Hits the Age Wall", body: "Travis Kelce managed two catches for 11 yards and only 3.50 fantasy points for Pat. Through four weeks he had not surpassed 40 receiving yards or scored a touchdown, deepening the concern at a position once considered automatic." },
+    { section: "Bench Warrant", headline: "Burrow Watches Nico Lose", body: "Joe Burrow scored 35.00 on Nico’s bench while Jared Goff started in a 38.30-point loss. Dave Jr. also left Ollie Gordon’s 24.00 unused during the week’s lowest team performance." }
+  ],
+  briefs: [
+    { headline: "Four perfect weeks", body: "Stefan, Derric, Darren and Jake each earned both the matchup and median victories." },
+    { headline: "Victory without the median", body: "Nate and Anthony won head-to-head but finished below 128.75, splitting their weeks 1–1." },
+    { headline: "Great scores, wrong opponents", body: "Dave Sr. scored 161.95 and Pat scored 156.90. Both lost their matchups but salvaged median victories." },
+    { headline: "The low-water mark", body: "Brown Rice finished at 84.10, the week’s lowest total, and fell to last place." }
+  ],
+  results: [
+    { away: "Show Me Your Tet", awayScore: 204.75, home: "Drake It Till You Make It", homeScore: 161.95, note: "Season-high score · 366.70 combined" },
+    { away: "Taylor Park Boys", awayScore: 195.95, home: "Team PatSmear", homeScore: 156.90, note: "London Calling · Stefan takes points lead" },
+    { away: "Cooking Up Collusion", awayScore: 140.80, home: "RI Lion’s", homeScore: 102.50, note: "Darren’s fifth straight scoring win" },
+    { away: "Achanesaw Massacre", awayScore: 132.05, home: "Colonel Corn", homeScore: 125.35, note: "Jake joins Nate at 7–1" },
+    { away: "The Price Is Right", awayScore: 125.45, home: "Let’s Cut to the Chase", homeScore: 121.30, note: "Closest game · 4.15" },
+    { away: "Gibbs Me Her Kittle", awayScore: 111.65, home: "Brown Rice", homeScore: 84.10, note: "Both below median" }
+  ],
+  standings: [
+    [1,"Gibbs Me Her Kittle","7–1",581.50,467.55],[2,"Achanesaw Massacre","7–1",580.95,460.30],[3,"Taylor Park Boys","6–2",634.25,536.45],[4,"Cooking Up Collusion","5–3",545.95,528.00],[5,"Show Me Your Tet","4–4",603.35,559.35],[6,"Team PatSmear","4–4",577.25,676.25],[7,"Let’s Cut to the Chase","4–4",499.90,548.80],[8,"Drake It Till You Make It","3–5",514.70,574.70],[9,"Colonel Corn","2–6",531.35,545.10],[10,"RI Lion’s","2–6",512.40,573.45],[11,"The Price Is Right","2–6",457.35,504.90],[12,"Brown Rice","2–6",452.25,516.35]
+  ].map(([rank,team,record,points,pointsAgainst]) => ({rank:rank as number,team:team as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number})),
+  rankings: [
+    { rank: 1, team: "Taylor Park Boys", movement: "▲ 2", blurb: "The league points leader just scored 195.95 against the defending champion." },
+    { rank: 2, team: "Achanesaw Massacre", movement: "—", blurb: "Jake has four straight scoring wins and is only 0.55 PF behind Nate." },
+    { rank: 3, team: "Gibbs Me Her Kittle", movement: "▼ 2", blurb: "Still first officially, but 111.65 ended perfection and opened the door." },
+    { rank: 4, team: "Show Me Your Tet", movement: "▲ 5", blurb: "A 204.75 eruption forces the entire league to reconsider Derric." },
+    { rank: 5, team: "Cooking Up Collusion", movement: "▲ 1", blurb: "Five straight scoring wins and another convincing 2–0 week." },
+    { rank: 6, team: "Team PatSmear", movement: "▼ 1", blurb: "156.90 would usually win; the reigning champion remains dangerous." },
+    { rank: 7, team: "Drake It Till You Make It", movement: "▲ 4", blurb: "The 161.95 loss was cruel, but the lineup finally showed its ceiling." },
+    { rank: 8, team: "Let’s Cut to the Chase", movement: "▼ 4", blurb: "Two straight scoring losses erase much of the Week 3 escape." },
+    { rank: 9, team: "Colonel Corn", movement: "▼ 1", blurb: "Six straight scoring losses have Johnny in a full emergency." },
+    { rank: 10, team: "RI Lion’s", movement: "▼ 3", blurb: "Four straight losses and a 102.50-point week deepen the slide." },
+    { rank: 11, team: "The Price Is Right", movement: "▲ 1", blurb: "Two consecutive matchup wins show life despite the 2–6 record." },
+    { rank: 12, team: "Brown Rice", movement: "▼ 2", blurb: "The week’s lowest score sends Dave Jr. to the bottom." }
+  ],
+  panicMeter: [
+    { team: "Colonel Corn", level: "Critical", score: 5, detail: "Six consecutive scoring losses after opening 2–0." },
+    { team: "Brown Rice", level: "Severe", score: 4, detail: "Four straight losses, 84.10 points and last place." },
+    { team: "RI Lion’s", level: "Severe", score: 4, detail: "Four straight losses and another bottom-three weekly score." },
+    { team: "Let’s Cut to the Chase", level: "Rising", score: 3, detail: "Two straight losses and seventh place after the Week 3 escape." },
+    { team: "The Price Is Right", level: "Cautious", score: 2, detail: "Two matchup wins in a row, but neither cleared the median." }
+  ],
+  awards: [
+    { label: "Manager of the Week", winner: "Stefan Balestra", detail: "195.95 from London, a 39.05-point win over the champion and the league PF lead." },
+    { label: "High Score", winner: "Derric Vigeant", detail: "The season’s first 200-point performance: 204.75." },
+    { label: "Player of the Week", winner: "Tetairoa McMillan", detail: "49.20 points on 14 catches, 192 yards and two touchdowns." },
+    { label: "Cruelest Defeat", winner: "Dave Campbell Sr.", detail: "Scored 161.95—the week’s third-best total—and lost by 42.80." },
+    { label: "Champion’s Fight", winner: "Pat Brown", detail: "CeeDee Lamb scored 45.30 and Pat reached 156.90 in defeat." },
+    { label: "Bench Crime", winner: "Nico Erausquin", detail: "Joe Burrow’s 35.00 sat behind Jared Goff during a 38.30-point loss." },
+    { label: "Lowest in Victory", winner: "Nate Watson", detail: "Won with 111.65 but surrendered the perfect scoring record." },
+    { label: "Panic Button", winner: "Johnny No", detail: "Colonel Corn has lost six consecutive scoring decisions." }
+  ],
+  leaders: [
+    { position: "QB", player: "Jared Goff", team: "RI Lion’s", points: 35.60 },
+    { position: "RB", player: "Kenneth Walker", team: "Cooking Up Collusion", points: 36.90 },
+    { position: "WR", player: "Tetairoa McMillan", team: "Show Me Your Tet", points: 49.20 },
+    { position: "TE", player: "T.J. Hockenson", team: "Show Me Your Tet", points: 28.90 },
+    { position: "DEF", player: "Los Angeles Rams", team: "Team PatSmear", points: 21.00 }
+  ],
+  history: []
+},{
   slug: "2026-week-03", issueNumber: 3, season: 2026, week: "Week 3", date: "September 29, 2026",
   median: "124.225",
   kicker: "Year XVI · Week Three · Median Line 124.225",

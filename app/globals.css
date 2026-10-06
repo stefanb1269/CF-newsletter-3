@@ -62,7 +62,35 @@ tbody th { font-weight:800; }
 .rankings article { display:grid; grid-template-columns:54px 1fr; gap:13px; padding:12px 0; border-bottom:1px solid #979181; }
 .rankings b { color:var(--green); font:900 2.4rem/.85 Arial,sans-serif; }
 .rankings h3 { margin:0; font:900 1.05rem/1 Arial,sans-serif; text-transform:uppercase; }
+.rankings h3 em { margin-left:6px; color:var(--orange); font-style:normal; font-size:.72rem; white-space:nowrap; }
 .rankings p { margin:4px 0 0; font-size:.88rem; line-height:1.35; }
+.spotlight { border:7px solid var(--ink); background:var(--cream); }
+.spotlight-head { padding:28px 5%; text-align:center; border-bottom:1px solid var(--rule); }
+.spotlight-head>span { color:var(--orange); font:900 10px/1 Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+.spotlight-head h2 { margin:8px 0 5px; font:900 clamp(3rem,9vw,7.5rem)/.82 Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif; letter-spacing:-.035em; text-transform:uppercase; }
+.spotlight-head p { max-width:760px; margin:14px auto 0; font-size:1.25rem; font-style:italic; line-height:1.25; }
+.spotlight-body { display:grid; grid-template-columns:1.2fr .8fr; gap:30px; padding:25px 5%; }
+.spotlight-body p:first-child { margin-top:0; }
+.spotlight-stats { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule); }
+.spotlight-stats article { min-height:105px; display:grid; align-content:center; padding:14px; text-align:center; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.spotlight-stats article:nth-child(2n) { border-right:0; }
+.spotlight-stats article:nth-child(n+3) { border-bottom:0; }
+.spotlight-stats strong { color:var(--green); font:900 2rem/1 Arial,sans-serif; }
+.spotlight-stats span { margin-top:6px; font:800 9px/1.2 Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.panic-grid { display:grid; grid-template-columns:repeat(5,1fr); background:#271914; color:var(--cream); }
+.panic-grid article { padding:18px; border-right:1px solid rgb(255 255 255 / 20%); }
+.panic-grid article:last-child { border-right:0; }
+.panic-grid article>div:first-child { min-height:62px; }
+.panic-grid h3 { margin:0 0 5px; font:900 1rem/1 Arial,sans-serif; text-transform:uppercase; }
+.panic-grid strong { color:#f0a36e; font:900 10px/1 Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+.panic-grid p { margin:12px 0 0; font-size:.85rem; line-height:1.35; }
+.panic-dots { display:flex; gap:5px; margin-top:12px; }
+.panic-dots i { width:15px; height:15px; border-radius:50%; background:#675b55; }
+.panic-dots i.hot { background:#d9482b; box-shadow:0 0 8px rgb(217 72 43 / 55%); }
+.photo-feature-grid { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr); gap:30px; align-items:center; padding-top:20px; }
+.photo-feature figure { margin:0; }
+.photo-feature img { display:block; width:100%; max-height:720px; object-fit:cover; object-position:center 42%; }
+.photo-feature-grid>p { margin:0; font-size:1.22rem; line-height:1.55; font-style:italic; }
 .story-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; padding-top:20px; }
 .story-grid article+article { border-left:1px solid #999283; padding-left:28px; }
 .story-grid h3 { margin:7px 0 9px; font-size:1.55rem; line-height:1.02; }
@@ -115,6 +143,9 @@ tbody th { font-weight:800; }
   .league-badge { width:48px; height:48px; font-size:24px; }
   .paper,.archive-page { width:100%; padding-left:20px; padding-right:20px; box-shadow:none; }
   .front-grid,.analysis-grid { grid-template-columns:1fr; }
+  .spotlight-body,.photo-feature-grid { grid-template-columns:1fr; }
+  .panic-grid { grid-template-columns:1fr 1fr; }
+  .panic-grid article { border-bottom:1px solid rgb(255 255 255 / 20%); }
   .lead-copy { column-count:1; }
   .score-grid { grid-template-columns:repeat(2,1fr); }
   .story-grid { grid-template-columns:1fr; }
@@ -143,6 +174,8 @@ tbody th { font-weight:800; }
   .section-title { display:block; }
   .section-title h2 { margin-top:6px; }
   .award-grid { grid-template-columns:1fr; }
+  .panic-grid { grid-template-columns:1fr; }
+  .panic-grid article { border-right:0; }
   .awards article+article { border-left:0; border-top:1px solid rgb(255 255 255 / 28%); }
   .leader-grid { grid-template-columns:1fr; }
   .leader-grid article { border-right:0; }
