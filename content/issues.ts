@@ -1,6 +1,8 @@
 export type Result = { away: string; awayScore: number; home: string; homeScore: number; note?: string };
 export type Standing = { rank: number; team: string; record: string; points: number; pointsAgainst: number };
 export type HistoryRow = { manager: string; club: string; titles: string; playoffs: string; note: string };
+export type AlternateStanding = { rank: number; team: string; record: string; official: string; medianEffect: string };
+export type BStanding = { rank: number; team: string; manager: string; record: string; points: number; pointsAgainst: number; movement: string };
 export type Issue = {
   slug: string; issueNumber: number; season: number; week: string; date: string;
   median: string;
@@ -16,9 +18,189 @@ export type Issue = {
   spotlight?: { kicker: string; headline: string; deck: string; body: string[]; stats: { value: string; label: string }[] };
   photoFeature?: { kicker: string; headline: string; image: string; alt: string; caption: string; body: string };
   panicMeter?: { team: string; level: string; score: number; detail: string }[];
+  noMedian?: { intro: string; standings: AlternateStanding[]; notes: { headline: string; body: string }[] };
+  luckFile?: { headline: string; deck: string; rows: { week: string; decision: string; margin: string }[]; conclusion: string };
+  bLeague?: { headline: string; deck: string; standings: BStanding[]; watch: { label: string; headline: string; body: string }[] };
+  stockMarket?: { up: { team: string; detail: string }[]; down: { team: string; detail: string }[] };
+  trafficJam?: { intro: string; stats: { value: string; label: string }[]; body: string[] };
+  performanceDesk?: { boom: { player: string; points: string; detail: string }[]; bust: { player: string; points: string; detail: string }[]; bench: { player: string; points: string; detail: string }[] };
 };
 
 export const issues: Issue[] = [{
+  slug: "2026-week-05", issueNumber: 5, season: 2026, week: "Week 5", date: "October 13, 2026",
+  median: "143.88",
+  kicker: "Year XVI · Week Five · Median Line 143.88",
+  headline: "Underdog Uprising",
+  deck: "Six matchups. Six upsets. The lower-ranked club wins every game and blows the Chestnut Farms standings wide open.",
+  hero: "/issues/2026-week-05/underdog-uprising-final.png",
+  heroAlt: "Six victorious fantasy football mascots charging over six fallen favorite banners as a baby runner holds up a quarter",
+  caption: "The Week 5 rebellion: RI Lion’s, Let’s Cut to the Chase, The Price Is Right, Colonel Corn, Drake It Till You Make It and Brown Rice swept the six higher-ranked favorites.",
+  lead: [
+    "Week 5 did not produce one upset. It produced a clean sweep. Every lower-ranked team defeated the favorite across from it, turning the standings upside down and compressing nearly the entire league into a three-game span. The six winners entered Sunday ranked seventh through twelfth by record order; by Tuesday morning, each had taken a game from the top half.",
+    "Dave Campbell Jr. supplied the loudest result, scoring a league-best 176.95 while holding reigning champion Pat Brown to 85.90. Dave Campbell Sr. followed at 174.90, Anthony Innamorati reached 172.95 and Johnny No scored 166.80. Nico Erausquin knocked off Taylor Park Boys, and Jon Naval completed the sweep in overtime on Monday night.",
+    "The aftermath is a traffic jam: Jake and Nate lead at 7–3, Stefan and Jon sit 6–4, Darren and Dave Sr. are 5–5, and the remaining six clubs are all 4–6. First and last are separated by only three scoring decisions. Nobody is safe, and nobody is out."
+  ],
+  quote: "The favorites owned the standings. The underdogs owned the week.", quoteBy: "The Chronicle sports desk",
+  spotlight: {
+    kicker: "Monday Night Miracle",
+    headline: "Won by a Quarter",
+    deck: "Kyren Williams’ final overtime production sends Jon past first-place Jake, 144.00–143.75.",
+    body: [
+      "Jake Brierly appeared to have survived. Achanesaw Massacre had received 36.30 from Christian Watson, 33.05 from Trevor Lawrence and 27.40 from De’Von Achane, building a 143.75 total that sat just below the weekly median but ahead of Jon entering the final moments of Monday Night Football.",
+      "Then the Rams and Bills went to overtime. Kyren Williams’ final touches supplied the fraction Jon still needed, lifting Let’s Cut to the Chase to 144.00. The last movement of the fantasy week simultaneously beat Jake by 0.25 and cleared the 143.88 median by 0.12. Jon went from the edge of an 0–2 result to a perfect 2–0 week and climbed four places into fourth."
+    ],
+    stats: [{ value: "0.25", label: "Winning margin" }, { value: "0.12", label: "Above median" }, { value: "2–0", label: "Jon’s Week 5" }, { value: "+4", label: "Places climbed" }]
+  },
+  stories: [
+    { section: "Matchup Autopsy", headline: "Brown Rice Boils Over", body: "Dave Jr. produced the week’s best score and its largest margin, 176.95–85.90 over Team PatSmear. Matthew Stafford scored 38.15, Bucky Irving 37.50 and Davante Adams 22.10. The 91.05-point demolition moved Brown Rice to 4–6 and dropped the defending champion into the six-team pileup." },
+    { section: "Matchup Autopsy", headline: "Maye Day for Nate", body: "Drake Maye’s 53.20-point eruption powered Dave Sr. to a 174.90–126.55 win over Gibbs Me Her Kittle. Malik Nabers added 33.10 and Matthew Golden 24.30. Nate’s third consecutive scoring loss erased the cushion created by his 6–0 opening." },
+    { section: "Matchup Autopsy", headline: "Come on Down", body: "The Price Is Right scored 172.95 behind Puka Nacua’s 41.70 and Jayden Daniels’ 38.25, beating Cooking Up Collusion by 31.00. Darren received 42.80 from Jaylen Warren and 26.80 from James Cook, but the rest of the lineup could not match Anthony’s depth." },
+    { section: "Matchup Autopsy", headline: "Corn Fed", body: "Colonel Corn routed Show Me Your Tet 166.80–116.70. Josh Allen delivered 41.60, Mike Evans 30.30 and Braelon Allen 22.60. Johnny’s second head-to-head win stopped the slide; Derric followed a 204.75 masterpiece with a 116.70 collapse." },
+    { section: "Matchup Autopsy", headline: "The London Hangover", body: "One week after taking the points lead in London, Taylor Park Boys scored 114.70 and lost to RI Lion’s 146.95. Jared Goff’s 34.65 and Washington’s 34.40 led Nico’s upset while Stefan absorbed his first 0–2 week of the season." },
+    { section: "Matchup Autopsy", headline: "A Quarter Changes Everything", body: "Jon’s 144.00 was only the fifth-highest winning score, yet it produced the week’s most consequential result. Jake lost the matchup by 0.25 and missed the median by 0.13, turning an almost-perfect night into an 0–2 week." },
+    { section: "Champion’s Crisis", headline: "SMEARED", body: "Pat is 4–6 officially but 0–5 in traditional head-to-head games. Four median victories have kept the reigning champion afloat. Week 5 brought the league’s lowest score, largest defeat and strongest evidence yet that the title defense is in genuine danger." },
+    { section: "NFL Fantasy Pulse", headline: "Maye Drops Five on Vegas", body: "Drake Maye completed 26 of 34 passes for 374 yards, threw four touchdowns and ran for another in New England’s 45–17 rout. The 53.20 fantasy points were the defining individual performance of Chestnut Farms Week 5." },
+    { section: "NFL Fantasy Pulse", headline: "Allen Wins an Overtime Classic", body: "Buffalo outlasted the Rams 37–34 in overtime. Josh Allen generated 331 total yards, while Puka Nacua reached 138 receiving yards. The extra period also decided Jon and Jake’s fantasy matchup." },
+    { section: "NFL Fantasy Pulse", headline: "Perfect Teams Keep Rolling", body: "San Francisco improved to 5–0 by edging Seattle 32–29, and Minnesota reached 5–0 with a 23–13 win over New Orleans. Jacksonville stunned Philadelphia 19–17 in London on Cam Little’s 57-yard field goal as time expired." },
+    { section: "Injury Report", headline: "Henderson’s High Ankle Sprain", body: "TreVeyon Henderson is expected to miss multiple weeks after injuring his ankle during New England’s win. Rhamondre Stevenson inherits the clearest fantasy benefit, with Corey Kiner positioned for complementary work." },
+    { section: "Usage Desk", headline: "Volume That Travels", body: "Puka Nacua’s overtime workload, Bucky Irving’s 165 rushing yards and Jaylen Warren’s 176 scrimmage yards supplied three of the week’s most bankable performances. All three combined opportunity with efficiency rather than relying on a single broken play." }
+  ],
+  briefs: [
+    { headline: "A perfect upset slate", body: "All six lower-ranked clubs won their head-to-head matchups." },
+    { headline: "Six clubs at 4–6", body: "Derric, Johnny, Pat, Nico, Anthony and Dave Jr. are separated only by tiebreakers." },
+    { headline: "Jake’s double miss", body: "A 0.25 matchup loss and 0.13 median miss turned 143.75 into an 0–2 result." },
+    { headline: "Pat’s hidden record", body: "The champion is 4–6 officially—but 0–5 when the median is removed." },
+    { headline: "Four scores above 166", body: "Dave Jr., Dave Sr., Anthony and Johnny all delivered statement totals." }
+  ],
+  results: [
+    { away: "Brown Rice", awayScore: 176.95, home: "Team PatSmear", homeScore: 85.90, note: "Week high · Largest margin 91.05" },
+    { away: "Drake It Till You Make It", awayScore: 174.90, home: "Gibbs Me Her Kittle", homeScore: 126.55, note: "Drake Maye 53.20" },
+    { away: "The Price Is Right", awayScore: 172.95, home: "Cooking Up Collusion", homeScore: 141.95, note: "Anthony’s third straight H2H win" },
+    { away: "Colonel Corn", awayScore: 166.80, home: "Show Me Your Tet", homeScore: 116.70, note: "Josh Allen 41.60" },
+    { away: "RI Lion’s", awayScore: 146.95, home: "Taylor Park Boys", homeScore: 114.70, note: "Nico completes a 2–0 week" },
+    { away: "Let’s Cut to the Chase", awayScore: 144.00, home: "Achanesaw Massacre", homeScore: 143.75, note: "Closest game · Kyren wins it in OT" }
+  ],
+  standings: [
+    [1,"Achanesaw Massacre","7–3",724.70,604.30],[2,"Gibbs Me Her Kittle","7–3",708.05,642.45],[3,"Taylor Park Boys","6–4",748.95,683.40],[4,"Let’s Cut to the Chase","6–4",643.90,692.55],[5,"Drake It Till You Make It","5–5",689.60,701.25],[6,"Cooking Up Collusion","5–5",687.90,700.95],[7,"Show Me Your Tet","4–6",720.05,726.15],[8,"Colonel Corn","4–6",698.15,661.80],[9,"Team PatSmear","4–6",663.15,853.20],[10,"RI Lion’s","4–6",659.35,688.15],[11,"The Price Is Right","4–6",630.30,646.85],[12,"Brown Rice","4–6",629.20,602.25]
+  ].map(([rank,team,record,points,pointsAgainst]) => ({rank:rank as number,team:team as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number})),
+  rankings: [
+    { rank: 1, team: "Achanesaw Massacre", movement: "—", blurb: "Still 7–3 with a 4–1 head-to-head record; a quarter-point loss does not erase the résumé." },
+    { rank: 2, team: "Taylor Park Boys", movement: "▼ 1", blurb: "The 114.70 stumble hurts, but 748.95 remains the league’s best scoring total." },
+    { rank: 3, team: "Gibbs Me Her Kittle", movement: "—", blurb: "Three straight scoring losses have cooled the 6–0 opening and tightened the race." },
+    { rank: 4, team: "Drake It Till You Make It", movement: "▲ 3", blurb: "Maye’s 53.20 drove a 174.90 statement and pushed Dave Sr. back to .500." },
+    { rank: 5, team: "Let’s Cut to the Chase", movement: "▲ 3", blurb: "The margins are absurd, but 6–4 and two perfect photo-finish weeks are real." },
+    { rank: 6, team: "The Price Is Right", movement: "▲ 5", blurb: "Three consecutive head-to-head wins and 172.95 make Anthony the league’s fastest riser." },
+    { rank: 7, team: "Brown Rice", movement: "▲ 5", blurb: "From last place to the week’s high score; Dave Jr. finally showed the roster’s ceiling." },
+    { rank: 8, team: "Colonel Corn", movement: "▲ 1", blurb: "A 166.80 eruption ends the emergency and puts Johnny back in the race." },
+    { rank: 9, team: "RI Lion’s", movement: "▲ 1", blurb: "Beating the points leader matters, but the season scoring profile remains volatile." },
+    { rank: 10, team: "Cooking Up Collusion", movement: "▼ 5", blurb: "Warren exploded, yet a second straight scoring loss drags Darren back to 5–5." },
+    { rank: 11, team: "Show Me Your Tet", movement: "▼ 7", blurb: "The 204.75 afterglow vanished in a 50.10-point defeat." },
+    { rank: 12, team: "Team PatSmear", movement: "▼ 6", blurb: "The defending champion is winless head-to-head and just posted the week’s lowest score." }
+  ],
+  panicMeter: [
+    { team: "Team PatSmear", level: "Critical", score: 5, detail: "0–5 head-to-head, 85.90 this week and a 91.05-point loss." },
+    { team: "Show Me Your Tet", level: "Severe", score: 4, detail: "Followed 204.75 with 116.70 and fell to 4–6." },
+    { team: "Gibbs Me Her Kittle", level: "Rising", score: 3, detail: "Three consecutive scoring losses after a perfect 6–0 start." },
+    { team: "Cooking Up Collusion", level: "Rising", score: 3, detail: "Two straight scoring losses and now only .500." },
+    { team: "Taylor Park Boys", level: "Watch", score: 2, detail: "The points leader just produced its first 0–2 week." }
+  ],
+  trafficJam: {
+    intro: "The uprising did more than produce six entertaining results. It erased almost every comfortable gap in the table and created four distinct but tightly packed record tiers.",
+    stats: [{value:"2",label:"Teams at 7–3"},{value:"2",label:"Teams at 6–4"},{value:"2",label:"Teams at 5–5"},{value:"6",label:"Teams at 4–6"},{value:"3",label:"Wins from first to last"},{value:"748.95",label:"PF leader sits third"}],
+    body: [
+      "Jake and Nate still share first place, but both went 0–2 in Week 5. Stefan and Jon are one decision behind, with Jon’s quarter-point escape creating a tie for third. Dave Sr. and Darren occupy the .500 bridge between the leaders and the largest logjam in league history.",
+      "The entire bottom half is 4–6. Derric leads that group on total points, while Dave Jr. sits twelfth despite producing the week’s highest score. With only three decisions separating first from last, one perfect week can move a team several positions and one collapse can erase a month of work."
+    ]
+  },
+  noMedian: {
+    intro: "Remove the weekly median and count only the five head-to-head games. Pat’s safety net disappears, Anthony rises into the second tier and the league looks very different.",
+    standings: [
+      { rank:1, team:"Achanesaw Massacre", record:"4–1", official:"7–3", medianEffect:"+3 wins" },
+      { rank:2, team:"Gibbs Me Her Kittle", record:"4–1", official:"7–3", medianEffect:"+3 wins" },
+      { rank:3, team:"Taylor Park Boys", record:"3–2", official:"6–4", medianEffect:"+3 wins" },
+      { rank:4, team:"Drake It Till You Make It", record:"3–2", official:"5–5", medianEffect:"+2 wins" },
+      { rank:5, team:"Let’s Cut to the Chase", record:"3–2", official:"6–4", medianEffect:"+3 wins" },
+      { rank:6, team:"The Price Is Right", record:"3–2", official:"4–6", medianEffect:"+1 win" },
+      { rank:7, team:"Show Me Your Tet", record:"2–3", official:"4–6", medianEffect:"+2 wins" },
+      { rank:8, team:"Colonel Corn", record:"2–3", official:"4–6", medianEffect:"+2 wins" },
+      { rank:9, team:"Cooking Up Collusion", record:"2–3", official:"5–5", medianEffect:"+3 wins" },
+      { rank:10, team:"RI Lion’s", record:"2–3", official:"4–6", medianEffect:"+2 wins" },
+      { rank:11, team:"Brown Rice", record:"2–3", official:"4–6", medianEffect:"+2 wins" },
+      { rank:12, team:"Team PatSmear", record:"0–5", official:"4–6", medianEffect:"+4 wins" }
+    ],
+    notes: [
+      { headline:"The median’s biggest beneficiary", body:"Pat has earned four victories by finishing above the weekly line while losing every direct matchup." },
+      { headline:"Anthony’s hidden surge", body:"The Price Is Right is 3–2 head-to-head, tied for the league’s third-best traditional record despite ranking eleventh officially." },
+      { headline:"Jon still lives dangerously", body:"Three head-to-head wins include margins of 0.55 and 0.25. The traditional table validates the wins but not the comfort." }
+    ]
+  },
+  luckFile: {
+    headline: "The Luckiest Baby Alive?",
+    deck: "Two perfect weeks, four victories and a combined cushion of only 1.195 points.",
+    rows: [
+      { week:"Week 3", decision:"Beat RI Lion’s", margin:"+0.550" },
+      { week:"Week 3", decision:"Cleared median", margin:"+0.275" },
+      { week:"Week 5", decision:"Beat Achanesaw Massacre", margin:"+0.250" },
+      { week:"Week 5", decision:"Cleared median", margin:"+0.120" }
+    ],
+    conclusion: "Jon is not merely winning close games. He is repeatedly surviving by statistical pocket change. No team has converted thinner margins into more standings value."
+  },
+  performanceDesk: {
+    boom: [
+      {player:"Drake Maye",points:"53.20",detail:"Four passing touchdowns, one rushing score and the week’s defining eruption."},
+      {player:"Jaylen Warren",points:"42.80",detail:"127 rushing yards and 49 receiving yards in a losing fantasy effort."},
+      {player:"Puka Nacua",points:"41.70",detail:"Overtime volume helped deliver Anthony’s 172.95-point statement."},
+      {player:"Bucky Irving",points:"37.50",detail:"165 rushing yards and two total touchdowns powered Brown Rice."}
+    ],
+    bust: [
+      {player:"CeeDee Lamb",points:"2.90",detail:"Two catches for nine yards during Pat’s 91.05-point defeat."},
+      {player:"Derrick Henry",points:"4.80",detail:"A quiet afternoon removed Nate’s usual weekly floor."},
+      {player:"Alvin Kamara",points:"2.60",detail:"Only six receiving yards and 12 rushing yards for Team PatSmear."},
+      {player:"Bo Nix",points:"10.15",detail:"Only 123 passing yards as Brown Rice won in spite of its quarterback."}
+    ],
+    bench: [
+      {player:"Jordan Love",points:"42.95",detail:"Anthony left a massive score unused but Jayden Daniels still delivered 38.25."},
+      {player:"Isaiah Likely",points:"32.40",detail:"The week’s highest-scoring tight end watched Taylor Park Boys lose from the bench."},
+      {player:"Kyler Murray",points:"21.55",detail:"Nate started Justin Herbert’s 12.45 while the better quarterback score sat unused."},
+      {player:"Joe Burrow",points:"32.50",detail:"Nico benched Burrow, but Jared Goff’s 34.65 made it the correct decision."}
+    ]
+  },
+  bLeague: {
+    headline:"The Promotion Watch Opens",
+    deck:"Michael Balestra is perfect, Dillon Neumann owns the scoring crown and a crowded middle class is chasing the route to A League.",
+    standings: [
+      [1,"Hole Punchers","Michael Balestra, Esq.","10–0",739.95,521.10,"—"],[2,"Stairway to Evans","Dillon Neumann, MD","6–4",772.70,663.55,"▲ 2"],[3,"Chronic Micropenix","Mike Skinner","6–4",641.85,589.25,"▲ 4"],[4,"Never Gonna Gibbs You Up","Matt Chouinard","5–5",723.95,776.85,"▲ 5"],[5,"Air Williams","Qendrim Kongjeli","5–5",704.65,816.40,"▼ 3"],[6,"Unnecessary Clarkness","Mike Clark","5–5",687.05,691.40,"▲ 1"],[7,"Loose Endz","Pat Gotham","5–5",620.40,618.95,"▲ 4"],[8,"Team Nickcic4","Nick Cicerone","5–5",608.85,612.45,"▼ 5"],[9,"Team stefanb1268","Gio Gray","4–6",637.25,712.35,"▼ 4"],[10,"A Ladd from London Town","Philip Hubbell","4–6",607.70,581.40,"—"],[11,"Forced to Be Commish","Josh Hubbell","3–7",692.85,756.80,"▼ 3"],[12,"Team Spage3","Scott Page","2–8",553.05,649.75,"—"]
+    ].map(([rank,team,manager,record,points,pointsAgainst,movement]) => ({rank:rank as number,team:team as string,manager:manager as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number,movement:movement as string})),
+    watch: [
+      { label:"Front-Runner", headline:"Michael Is 10–0", body:"Hole Punchers owns every possible scoring victory through five weeks and a league-best +218.85 point differential." },
+      { label:"Scoring King", headline:"Dillon Leads Everyone", body:"Stairway to Evans has 772.70 points—32.75 more than Michael—and represents the most obvious threat to the perfect leader." },
+      { label:"Rising Manager", headline:"Pat Gotham Is Coming", body:"The newcomer’s Loose Endz has won three straight scoring decisions and climbed four places into the five-team 5–5 crowd." },
+      { label:"Inactive Watch", headline:"Gio Goes Missing", body:"Team stefanb1268 has slipped to 4–6 while Gio has repeatedly allowed injured De’Von Achane to remain in the starting lineup." }
+    ]
+  },
+  stockMarket: {
+    up:[{team:"Brown Rice",detail:"Week-high 176.95"},{team:"The Price Is Right",detail:"Three straight H2H wins"},{team:"Drake It Till You Make It",detail:"Maye unlocks the ceiling"},{team:"Let’s Cut to the Chase",detail:"Another perfect escape"}],
+    down:[{team:"Team PatSmear",detail:"0–5 head-to-head"},{team:"Show Me Your Tet",detail:"88.05-point weekly crash"},{team:"Gibbs Me Her Kittle",detail:"Three straight scoring losses"},{team:"Cooking Up Collusion",detail:"Back to .500"}]
+  },
+  awards: [
+    { label:"Manager of the Week", winner:"Dave Campbell Jr.", detail:"A league-high 176.95 and a 91.05-point demolition of the reigning champion." },
+    { label:"Player of the Week", winner:"Drake Maye", detail:"53.20 points on four passing touchdowns and one rushing score." },
+    { label:"Photo Finish", winner:"Jon Naval", detail:"Kyren Williams’ overtime work delivered a 0.25-point victory." },
+    { label:"Bad Beat", winner:"Jake Brierly", detail:"Lost by 0.25 and missed the median by 0.13." },
+    { label:"Resurrection", winner:"Anthony Innamorati", detail:"172.95 points and a third consecutive head-to-head win." },
+    { label:"Dragonfire", winner:"Dave Campbell Sr.", detail:"174.90 behind the week’s highest-scoring player." },
+    { label:"Reality Check", winner:"Pat Brown", detail:"The champion fell to 0–5 head-to-head with the week’s lowest score." },
+    { label:"Scoring Whiplash", winner:"Derric Vigeant", detail:"From 204.75 in Week 4 to 116.70 in Week 5." }
+  ],
+  leaders: [
+    { position:"QB",player:"Drake Maye",team:"Drake It Till You Make It",points:53.20 },
+    { position:"RB",player:"Jaylen Warren",team:"Cooking Up Collusion",points:42.80 },
+    { position:"WR",player:"Puka Nacua",team:"The Price Is Right",points:41.70 },
+    { position:"TE",player:"Isaiah Likely",team:"Taylor Park Boys bench",points:32.40 },
+    { position:"DEF",player:"New York Jets",team:"Taylor Park Boys",points:30.00 }
+  ],
+  history: []
+},{
   slug: "2026-week-04", issueNumber: 4, season: 2026, week: "Week 4", date: "October 6, 2026",
   median: "128.75",
   kicker: "Year XVI · Week Four · Median Line 128.75",
