@@ -27,6 +27,174 @@ export type Issue = {
 };
 
 export const issues: Issue[] = [{
+  slug: "2026-week-06", issueNumber: 6, season: 2026, week: "Week 6", date: "October 20, 2026",
+  median: "120.05",
+  kicker: "Year XVI · Week Six · Median Line 120.05",
+  headline: "Changing of the Guard",
+  deck: "Taylor Park Boys seize first place and the scoring crown while Jake and Nate discover that a hot start is not a lifetime appointment.",
+  hero: "/issues/2026-week-06/changing-of-the-guard.png",
+  heroAlt: "Taylor Park Boys characters claiming the Chestnut Farms trophy at a trailer park as the former leaders surrender their positions",
+  caption: "Power changes hands at Chestnut Farms: Taylor Park Boys claim the trophy, the top seed and the league scoring lead while the old guard staggers backward.",
+  lead: [
+    "Taylor Park Boys did not merely move into first place. Stefan Balestra took the league's points lead, stood alone atop the standings at 8–4 and ended the brief administrative error in which Jake and Nate were permitted to believe the league belonged to them. A 141.55–121.10 win over The Price Is Right completed the transfer of power.",
+    "Behind him, the standings have become a crowded crime scene. Darren's Cooking Up Collusion dropped 150.90 on Jake and climbed to second. Dave Campbell Sr. beat Pat for a fifth consecutive win and rose to fourth. Jake and Nate both finished 0–2 after Dave Sr. and Anthony crawled over the median on Monday night and slammed the trapdoor beneath them.",
+    "Six weeks have also produced zero trades, Pat has yet to beat a human opponent and the B League has developed its own promotion war. The league is competitive, unstable and apparently terrified of negotiation. In other words, the season is finally getting good."
+  ],
+  quote: "First place is rented. Taylor Park just changed the locks.", quoteBy: "The Chronicle sports desk",
+  spotlight: {
+    kicker: "Monday Night Median Heist",
+    headline: "One Monday, Four Records Flipped",
+    deck: "Dave Sr. and Anthony cross 120.05 under the lights, sending Jake and Nate home 0–2.",
+    body: [
+      "The head-to-head games were settled, but the median was still waiting in the parking lot with a tire iron. Dave Sr. and Anthony both climbed above 120.05 on Monday night. Anthony cleared it by only 1.05, salvaging a 1–1 week despite losing to Stefan. Dave Sr. paired the median point with a win over Pat for a perfect 2–0 finish.",
+      "Their late movement carried collateral damage. Jake and Nate, already beaten by Darren and Derric, were pushed below the weekly line and fell to 0–2. Two managers rose, two contenders sank and the median once again proved it has more influence over this league than several commissioners."
+    ],
+    stats: [{ value: "120.05", label: "Median line" }, { value: "+1.05", label: "Anthony's clearance" }, { value: "0–2", label: "Jake's week" }, { value: "0–2", label: "Nate's week" }]
+  },
+  stories: [
+    { section: "Matchup Autopsy", headline: "The Crown Fits", body: "Taylor Park Boys beat The Price Is Right 141.55–121.10 and moved alone into first. Anthony still stole the median point by 1.05, which is the fantasy equivalent of losing the fight but finding twenty dollars in the parking lot." },
+    { section: "Matchup Autopsy", headline: "Collusion Goes Corporate", body: "Darren posted the league-high 150.90 and buried Achanesaw Massacre at 111.10. Cooking Up Collusion is now second, which means the suspicious name has progressed from a joke to potential evidence." },
+    { section: "Matchup Autopsy", headline: "Five Alive", body: "Dave Sr. handled Team PatSmear 145.95–111.80 for a fifth straight win. Drake It Till You Make It has climbed from the basement to fourth, proving a season can survive almost anything—including being managed by Dave Sr." },
+    { section: "Matchup Autopsy", headline: "TET Offensive", body: "Show Me Your Tet beat Gibbs Me Her Kittle 130.10–119.00. Derric delivered the loss that extended Nate's scoring skid to five while Nate missed the median by 1.05. Somewhere, symmetry laughed." },
+    { section: "Matchup Autopsy", headline: "Brown Rice Keeps Boiling", body: "Dave Jr. beat RI Lion's 124.00–105.65 for a fourth straight win. Brown Rice is now 6–6 after spending the opening month looking like something left forgotten in the back of the refrigerator." },
+    { section: "Matchup Autopsy", headline: "Corn Harvests the Baby", body: "Colonel Corn defeated Let's Cut to the Chase 101.55–87.00. Jon's enchanted baby carriage has finally lost a wheel; after surviving earlier weeks by pocket change, he posted the lowest score in the league and received no divine intervention." },
+    { section: "Streak Watch", headline: "How the Mighty Have Fallen", body: "Jake has lost four consecutive scoring decisions and Nate has lost five. Both remain 7–5, but the comfortable lead is gone, the emergency lights are flashing and the rest of the league can smell fear." },
+    { section: "Champion's Crisis", headline: "Four Wins, Zero Victims", body: "Pat is officially 4–8 and traditionally 0–6. Every victory has come from the median. PatSmear has not defeated another manager, making the weekly median Pat's best player, most loyal friend and only reliable source of emotional support." },
+    { section: "Trading for Dummies", headline: "Lesson One: Consolidate", body: "If three useful players are fighting for two lineup spots, package two of them for one superior starter. Bench points do not earn standings credit. They only produce screenshots, hindsight and unbearable Tuesday-morning speeches." },
+    { section: "Trading for Dummies", headline: "Lesson Two: Buy Depth", body: "A roster with one star and six active emergencies may need to trade concentrated value for multiple legitimate starters. This is not surrender. It is admitting that one excellent player cannot personally operate an entire fantasy franchise." },
+    { section: "Trading for Dummies", headline: "Lesson Three: Try One-for-One", body: "Two players can carry similar market value while serving different roster needs. A receiver-rich team and a running-back-rich team can help each other without either owner being publicly executed. Not every trade requires a fleece, despite six weeks of league behavior suggesting otherwise." },
+    { section: "Trading for Dummies", headline: "Six Weeks, Zero Trades", body: "Twelve managers have collectively decided it is safer to drown beside their own players than risk watching a former player succeed elsewhere. 'I always lose trades' is not a strategy. It is a confession that you do not trust yourself to count." },
+    { section: "Rules Committee", headline: "Are Eight Bench Spots Too Many?", body: "Chestnut Farms carries eight bench spots while many standard redraft leagues use five. Deep benches reward preparation but turn waivers into an abandoned strip mall. The issue heads to an offseason vote—assuming the same managers afraid to trade can survive democracy." },
+    { section: "Roster Identity", headline: "Anthony Loves His 'Manders", body: "The Price Is Right continues stockpiling Commanders despite Anthony being a Packers fan. Nobody knows whether this is roster construction, divided loyalty or an elaborate cry for help. The Chronicle will continue monitoring the Washington annex." },
+    { section: "NFL Fantasy Pulse", headline: "Quarterbacks Take the Week", body: "Trevor Lawrence threw for 306 yards and four touchdowns, C.J. Stroud delivered 312 and three, Drake Maye threw three scores and Caleb Williams returned with 305 yards. The position produced enough points to rescue managers and enough bench regret to ruin several breakfasts." },
+    { section: "NFL Fantasy Pulse", headline: "Volume Monsters", body: "Malik Nabers caught 12 passes for 165 yards, Jaxon Smith-Njigba caught 12 for 134 and Kenneth Walker ran for 128 yards and two scores. Christian McCaffrey added two rushing touchdowns, continuing his campaign against competitive balance." },
+    { section: "Through the Wire", headline: "The doctor said I had blood clots, but I ain't…", body: "The Kanye reference writes the headline, but Jalen Hurts' diagnosis is not a punchline. Hurts was diagnosed with a calf DVT and bilateral pulmonary emboli, was placed on injured reserve and faces an extended absence while receiving anticoagulation. The entire league wishes him a safe and complete recovery." },
+    { section: "Injury Ward", headline: "Receivers Take Heavy Damage", body: "Davante Adams suffered a ruptured hamstring with a reported six-to-ten-week timetable. Mike Evans aggravated his Achilles after producing 94 receiving yards, Terry McLaurin left Monday night with a knee injury and Deebo Samuel remained sidelined by a hamstring issue. Puka Nacua stands to inherit even more work in Los Angeles." },
+    { section: "Injury Ward", headline: "Backfields Under Construction", body: "Saquon Barkley missed Week 6 with a hamstring injury, Breece Hall remained out with a quadriceps problem, Jacory Croskey-Merritt landed on injured reserve with a groin injury and Will Shipley is expected to miss multiple weeks with a partial plantar fascia tear. Every healthy running back is now one Sunday away from becoming somebody's entire personality." },
+    { section: "Notable Return", headline: "Caleb Comes Back Swinging", body: "Caleb Williams returned after missing three games with a hamstring injury and completed 30 of 36 passes for 305 yards. Taylor Park Boys left the production on the bench, because even first-place teams deserve material for the Bench column." }
+  ],
+  briefs: [
+    { headline: "New sheriff", body: "Taylor Park Boys owns first place and the league scoring lead at 890.50." },
+    { headline: "Five straight", body: "Dave Sr. has climbed to fourth after beginning the season in the basement." },
+    { headline: "Zero human victories", body: "Pat's four official wins have all come from beating the median." },
+    { headline: "Trade embargo", body: "Six weeks and not one completed deal. The league remains terrified of its own judgment." },
+    { headline: "The fall", body: "Jake and Nate are a combined 0–9 across their active scoring streaks." }
+  ],
+  results: [
+    { away: "Cooking Up Collusion", awayScore: 150.90, home: "Achanesaw Massacre", homeScore: 111.10, note: "Week high · Darren climbs to second" },
+    { away: "Drake It Till You Make It", awayScore: 145.95, home: "Team PatSmear", homeScore: 111.80, note: "Dave Sr.'s fifth straight win" },
+    { away: "Taylor Park Boys", awayScore: 141.55, home: "The Price Is Right", homeScore: 121.10, note: "Stefan takes first · Anthony clears median" },
+    { away: "Show Me Your Tet", awayScore: 130.10, home: "Gibbs Me Her Kittle", homeScore: 119.00, note: "Nate misses median by 1.05" },
+    { away: "Brown Rice", awayScore: 124.00, home: "RI Lion's", homeScore: 105.65, note: "Dave Jr.'s fourth straight win" },
+    { away: "Colonel Corn", awayScore: 101.55, home: "Let's Cut to the Chase", homeScore: 87.00, note: "Jon posts the week's low score" }
+  ],
+  standings: [
+    [1,"Taylor Park Boys","8–4",890.50,804.50],[2,"Cooking Up Collusion","7–5",838.80,812.05],[3,"Achanesaw Massacre","7–5",835.80,754.25],[4,"Drake It Till You Make It","7–5",835.55,813.05],[5,"Gibbs Me Her Kittle","7–5",827.05,772.55],[6,"Show Me Your Tet","6–6",850.15,845.15],[7,"Brown Rice","6–6",753.20,707.90],[8,"Let's Cut to the Chase","6–6",730.90,794.10],[9,"Colonel Corn","5–7",799.70,748.80],[10,"The Price Is Right","5–7",751.40,788.40],[11,"Team PatSmear","4–8",774.95,999.15],[12,"RI Lion's","4–8",765.00,812.15]
+  ].map(([rank,team,record,points,pointsAgainst]) => ({rank:rank as number,team:team as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number})),
+  rankings: [
+    { rank:1, team:"Taylor Park Boys", movement:"▲ 1", blurb:"First place, 890.50 points and the most complete résumé. The crown is no longer theoretical." },
+    { rank:2, team:"Cooking Up Collusion", movement:"▲ 8", blurb:"A league-high 150.90 launches Darren into second and makes the team name increasingly uncomfortable." },
+    { rank:3, team:"Drake It Till You Make It", movement:"▲ 1", blurb:"Five consecutive wins. Dave Sr. has stopped climbing the standings and begun invading them." },
+    { rank:4, team:"Show Me Your Tet", movement:"▲ 7", blurb:"Derric steadied the ship, beat Nate and owns the second-highest points total despite sitting sixth." },
+    { rank:5, team:"Brown Rice", movement:"▲ 2", blurb:"Four straight wins have transformed Dave Jr. from basement décor into an actual playoff threat." },
+    { rank:6, team:"Achanesaw Massacre", movement:"▼ 5", blurb:"Four straight scoring losses. The massacre is now taking place inside Jake's own facility." },
+    { rank:7, team:"Gibbs Me Her Kittle", movement:"▼ 4", blurb:"Five straight losses after a perfect opening. Nate's season has become a controlled demolition without the control." },
+    { rank:8, team:"The Price Is Right", movement:"▼ 2", blurb:"Anthony lost but cleared the median. The Washington annex remains dangerous and deeply confusing." },
+    { rank:9, team:"Colonel Corn", movement:"▼ 1", blurb:"A win is a win, even when 101.55 would normally require a written apology." },
+    { rank:10, team:"Let's Cut to the Chase", movement:"▼ 5", blurb:"The luckiest baby alive finally ran out of loose change and finished dead last for the week." },
+    { rank:11, team:"RI Lion's", movement:"▼ 2", blurb:"Last week's upset of Stefan was followed by 105.65. The revolution lasted approximately six days." },
+    { rank:12, team:"Team PatSmear", movement:"—", blurb:"Officially 4–8. Against actual opponents, 0–6. No editorial argument remains." }
+  ],
+  panicMeter: [
+    { team:"Team PatSmear", level:"Evacuate", score:5, detail:"Zero head-to-head wins through six weeks. The median cannot keep raising this child alone." },
+    { team:"Gibbs Me Her Kittle", level:"Critical", score:5, detail:"Five straight scoring losses after opening 6–0. Please Give Me a Win." },
+    { team:"Achanesaw Massacre", level:"Severe", score:4, detail:"Four straight scoring losses and the former leader has fallen to third." },
+    { team:"RI Lion's", level:"High", score:4, detail:"Tied for last at 4–8 after immediately surrendering the momentum from Week 5." },
+    { team:"Let's Cut to the Chase", level:"Rising", score:3, detail:"Two straight losses and a league-low 87.00. The enchanted stroller needs service." }
+  ],
+  trafficJam: {
+    intro:"Taylor Park Boys has created separation at the top, but five clubs sit within one official win and only 15.75 points separate second through fifth in total scoring.",
+    stats:[{value:"1",label:"Team alone at 8–4"},{value:"4",label:"Teams at 7–5"},{value:"3",label:"Teams at 6–6"},{value:"139.10",label:"Points from 1st to 12th"},{value:"5",label:"Dave Sr. win streak"},{value:"0",label:"Completed trades"}],
+    body:[
+      "Stefan owns the cleanest combination of record and production. Darren, Jake, Dave Sr. and Nate are stacked directly behind him at 7–5, but their arrows point in violently different directions. Darren and Dave Sr. are charging; Jake and Nate are searching for the emergency brake.",
+      "The middle remains dangerous. Derric leads the 6–6 tier with 850.15 points, nearly 100 more than Dave Jr., while Jon has reached the same record through considerably more dramatic means. One strong week can still move a manager half the table. One bad week can apparently turn a former favorite into a recurring newspaper joke."
+    ]
+  },
+  noMedian: {
+    intro:"Strip away the weekly scoring bonus and count only actual opponents. Pat disappears, Stefan and Nate share the best traditional record, and the official standings lose several layers of flattering makeup.",
+    standings:[
+      {rank:1,team:"Taylor Park Boys",record:"4–2",official:"8–4",medianEffect:"+4 wins"},
+      {rank:2,team:"Gibbs Me Her Kittle",record:"4–2",official:"7–5",medianEffect:"+3 wins"},
+      {rank:3,team:"Achanesaw Massacre",record:"4–2",official:"7–5",medianEffect:"+3 wins"},
+      {rank:4,team:"Drake It Till You Make It",record:"4–2",official:"7–5",medianEffect:"+3 wins"},
+      {rank:5,team:"Cooking Up Collusion",record:"3–3",official:"7–5",medianEffect:"+4 wins"},
+      {rank:6,team:"Show Me Your Tet",record:"3–3",official:"6–6",medianEffect:"+3 wins"},
+      {rank:7,team:"Brown Rice",record:"3–3",official:"6–6",medianEffect:"+3 wins"},
+      {rank:8,team:"Let's Cut to the Chase",record:"3–3",official:"6–6",medianEffect:"+3 wins"},
+      {rank:9,team:"The Price Is Right",record:"3–3",official:"5–7",medianEffect:"+2 wins"},
+      {rank:10,team:"Colonel Corn",record:"3–3",official:"5–7",medianEffect:"+2 wins"},
+      {rank:11,team:"RI Lion's",record:"2–4",official:"4–8",medianEffect:"+2 wins"},
+      {rank:12,team:"Team PatSmear",record:"0–6",official:"4–8",medianEffect:"+4 wins"}
+    ],
+    notes:[
+      {headline:"Pat has defeated nobody",body:"The defending champion's four official victories all came from beating an imaginary line. Six actual opponents have left with wins."},
+      {headline:"Darren gets the largest lift",body:"Cooking Up Collusion is 3–3 head-to-head but 7–5 officially. Four median victories help explain the climb to second."},
+      {headline:"Four traditional leaders",body:"Stefan, Nate, Jake and Dave Sr. share the best head-to-head record at 4–2, though their current trajectories could not look more different."}
+    ]
+  },
+  performanceDesk: {
+    boom:[
+      {player:"Trevor Lawrence",points:"38.40",detail:"Four passing touchdowns supplied a monster fantasy line even as Jake's roster lost around him."},
+      {player:"C.J. Stroud",points:"37.10",detail:"312 yards and three touchdowns powered Derric's win over Nate."},
+      {player:"Malik Nabers",points:"32.50",detail:"Twelve catches for 165 yards led Dave Sr.'s fifth straight victory."},
+      {player:"Kenneth Walker III",points:"31.90",detail:"128 rushing yards and two touchdowns gave Darren the week's best active running-back score."}
+    ],
+    bust:[
+      {player:"Jon's entire lineup",points:"87.00",detail:"A collective investigation. No single player should be forced to accept all the blame for this."},
+      {player:"Jake's supporting cast",points:"111.10",detail:"Trevor Lawrence scored 38.40 and still watched the roster finish below the median."},
+      {player:"Nate's lineup",points:"119.00",detail:"Lost the matchup and missed the median by 1.05—a perfectly efficient 0–2."},
+      {player:"RI Lion's",points:"105.65",detail:"Nico followed the upset of Stefan with the fantasy equivalent of returning the trophy the next morning."}
+    ],
+    bench:[
+      {player:"Kirk Cousins",points:"29.65",detail:"Taylor Park Boys survived while leaving the best quarterback score on Stefan's bench."},
+      {player:"Caleb Williams",points:"24.55",detail:"Returned for 305 passing yards and immediately joined Cousins in Stefan's luxury quarterback parking lot."},
+      {player:"Bench points league-wide",points:"Too many",detail:"Six weeks without a trade has turned usable production into expensive decorative furniture."}
+    ]
+  },
+  bLeague: {
+    headline:"Promotion Race Turns Violent",
+    deck:"The perfect team finally bleeds, Loose Endz wins the Gay Bowl and Josh Hubbell detonates for 195.95 as the road to A League narrows.",
+    standings:[
+      [1,"Hole Punchers","Michael Balestra, Esq.","10–2",821.45,650.65,"—"],[2,"Never Gonna Gibbs You Up","Matt Chouinard","7–5",847.50,895.20,"▲ 2"],[3,"Unnecessary Clarkness","Mike Clark","7–5",820.70,824.30,"▲ 3"],[4,"Loose Endz","Pat Gotham","7–5",749.95,700.45,"▲ 3"],[5,"Stairway to Evans","Dillon Neumann, MD","6–6",880.55,807.55,"▼ 3"],[6,"Air Williams","Qendrim Kongjeli","6–6",822.75,941.60,"▼ 1"],[7,"Chronic Micropenix","Mike Skinner","6–6",766.75,784.70,"▼ 4"],[8,"Team Nickcic4","Nick Cicerone","6–6",741.75,746.10,"—"],[9,"A Ladd from London Town","Philip Hubbell","6–6",737.05,706.50,"▲ 1"],[10,"Forced to Be Commish","Josh Hubbell","5–7",888.80,879.05,"▲ 1"],[11,"Team stefanb1268","Gio Gray","4–8",752.60,854.15,"▼ 2"],[12,"Team Spage3","Scott Page","2–10",671.40,786.10,"—"]
+    ].map(([rank,team,manager,record,points,pointsAgainst,movement]) => ({rank:rank as number,team:team as string,manager:manager as string,record:record as string,points:points as number,pointsAgainst:pointsAgainst as number,movement:movement as string})),
+    watch:[
+      {label:"The Gay Bowl",headline:"Loose Endz Tops Hole Punchers",body:"Pat Gotham beat boyfriend Michael Balestra 129.55–81.50, ending the perfect leader's aura and earning permanent household bragging rights. Love wins. Michael did not."},
+      {label:"Monday Escape",headline:"Autodraft Finds a Way",body:"Mike Clark's Unnecessary Clarkness escaped Nick 133.65–132.90 after Christian McCaffrey's monster Monday night. A 0.75-point margin extended the autodraft miracle to three straight wins."},
+      {label:"Weekly Detonation",headline:"Josh Drops 195.95",body:"Forced to Be Commish produced the B League's defining score. Josh remains 5–7, but nobody wants to see that ceiling in a promotion bracket."},
+      {label:"Free Fall",headline:"Scott Loses Five Straight",body:"Team Spage3 is 2–10 and has lost five consecutive scoring decisions. The promotion watch has become a wellness check."}
+    ]
+  },
+  stockMarket: {
+    up:[{team:"Taylor Park Boys",detail:"First place and points lead"},{team:"Drake It Till You Make It",detail:"Five straight wins"},{team:"Cooking Up Collusion",detail:"Week-high 150.90"},{team:"Brown Rice",detail:"Four straight wins"}],
+    down:[{team:"Gibbs Me Her Kittle",detail:"Five straight losses"},{team:"Achanesaw Massacre",detail:"Four straight losses"},{team:"Team PatSmear",detail:"0–6 head-to-head"},{team:"Let's Cut to the Chase",detail:"League-low 87.00"}]
+  },
+  awards: [
+    {label:"Manager of the Week",winner:"Darren Pnad",detail:"A league-high 150.90, a win over Jake and a climb into second place."},
+    {label:"New Sheriff",winner:"Stefan Balestra",detail:"First place, 890.50 points and the league's strongest overall résumé."},
+    {label:"Streak of the Week",winner:"Dave Campbell Sr.",detail:"Five straight wins after another perfect 2–0 result."},
+    {label:"Monday Thief",winner:"Anthony Innamorati",detail:"Lost his matchup but cleared the median by 1.05 to salvage the week."},
+    {label:"Efficient Collapse",winner:"Nate Watson",detail:"Lost head-to-head and missed the median by exactly 1.05."},
+    {label:"Humanity Avoidance",winner:"Pat Brown",detail:"Four official wins without defeating another manager."}
+  ],
+  leaders: [
+    {position:"QB",player:"Trevor Lawrence",team:"Achanesaw Massacre",points:38.40},
+    {position:"RB",player:"Kenneth Walker III",team:"Cooking Up Collusion",points:31.90},
+    {position:"WR",player:"Malik Nabers",team:"Drake It Till You Make It",points:32.50},
+    {position:"TE",player:"Isaiah Likely",team:"Brown Rice",points:23.90},
+    {position:"DEF",player:"Kansas City Chiefs",team:"Cooking Up Collusion",points:25.00}
+  ],
+  history: []
+},{
   slug: "2026-week-05", issueNumber: 5, season: 2026, week: "Week 5", date: "October 13, 2026",
   median: "143.88",
   kicker: "Year XVI · Week Five · Median Line 143.88",
