@@ -24,6 +24,9 @@ export type Issue = {
   stockMarket?: { up: { team: string; detail: string }[]; down: { team: string; detail: string }[] };
   trafficJam?: { intro: string; stats: { value: string; label: string }[]; body: string[] };
   performanceDesk?: { boom: { player: string; points: string; detail: string }[]; bust: { player: string; points: string; detail: string }[]; bench: { player: string; points: string; detail: string }[] };
+  newsDesk?: { section: string; headline: string; body: string }[];
+  tradeGuide?: { headline: string; deck: string; lessons: { number: string; headline: string; body: string; example: string }[]; footer: string };
+  injuryReport?: { headline: string; quote: string; intro: string; groups: { label: string; injuries: { player: string; position: string; injury: string; impact: string }[] }[]; returnNote: { player: string; detail: string } };
 };
 
 export const issues: Issue[] = [{
@@ -57,22 +60,51 @@ export const issues: Issue[] = [{
     { section: "Matchup Autopsy", headline: "Five Alive", body: "Dave Sr. handled Team PatSmear 145.95–111.80 for a fifth straight win. Drake It Till You Make It has climbed from the basement to fourth, proving a season can survive almost anything—including being managed by Dave Sr." },
     { section: "Matchup Autopsy", headline: "TET Offensive", body: "Show Me Your Tet beat Gibbs Me Her Kittle 130.10–119.00. Derric delivered the loss that extended Nate's scoring skid to five while Nate missed the median by 1.05. Somewhere, symmetry laughed." },
     { section: "Matchup Autopsy", headline: "Brown Rice Keeps Boiling", body: "Dave Jr. beat RI Lion's 124.00–105.65 for a fourth straight win. Brown Rice is now 6–6 after spending the opening month looking like something left forgotten in the back of the refrigerator." },
-    { section: "Matchup Autopsy", headline: "Corn Harvests the Baby", body: "Colonel Corn defeated Let's Cut to the Chase 101.55–87.00. Jon's enchanted baby carriage has finally lost a wheel; after surviving earlier weeks by pocket change, he posted the lowest score in the league and received no divine intervention." },
+    { section: "Matchup Autopsy", headline: "Corn Harvests the Baby", body: "Colonel Corn defeated Let's Cut to the Chase 101.55–87.00. Jon's enchanted baby carriage has finally lost a wheel; after surviving earlier weeks by pocket change, he posted the lowest score in the league and received no divine intervention." }
+  ],
+  newsDesk: [
     { section: "Streak Watch", headline: "How the Mighty Have Fallen", body: "Jake has lost four consecutive scoring decisions and Nate has lost five. Both remain 7–5, but the comfortable lead is gone, the emergency lights are flashing and the rest of the league can smell fear." },
     { section: "Champion's Crisis", headline: "Four Wins, Zero Victims", body: "Pat is officially 4–8 and traditionally 0–6. Every victory has come from the median. PatSmear has not defeated another manager, making the weekly median Pat's best player, most loyal friend and only reliable source of emotional support." },
-    { section: "Trading for Dummies", headline: "Lesson One: Consolidate", body: "If three useful players are fighting for two lineup spots, package two of them for one superior starter. Bench points do not earn standings credit. They only produce screenshots, hindsight and unbearable Tuesday-morning speeches." },
-    { section: "Trading for Dummies", headline: "Lesson Two: Buy Depth", body: "A roster with one star and six active emergencies may need to trade concentrated value for multiple legitimate starters. This is not surrender. It is admitting that one excellent player cannot personally operate an entire fantasy franchise." },
-    { section: "Trading for Dummies", headline: "Lesson Three: Try One-for-One", body: "Two players can carry similar market value while serving different roster needs. A receiver-rich team and a running-back-rich team can help each other without either owner being publicly executed. Not every trade requires a fleece, despite six weeks of league behavior suggesting otherwise." },
-    { section: "Trading for Dummies", headline: "Six Weeks, Zero Trades", body: "Twelve managers have collectively decided it is safer to drown beside their own players than risk watching a former player succeed elsewhere. 'I always lose trades' is not a strategy. It is a confession that you do not trust yourself to count." },
     { section: "Rules Committee", headline: "Are Eight Bench Spots Too Many?", body: "Chestnut Farms carries eight bench spots while many standard redraft leagues use five. Deep benches reward preparation but turn waivers into an abandoned strip mall. The issue heads to an offseason vote—assuming the same managers afraid to trade can survive democracy." },
     { section: "Roster Identity", headline: "Anthony Loves His 'Manders", body: "The Price Is Right continues stockpiling Commanders despite Anthony being a Packers fan. Nobody knows whether this is roster construction, divided loyalty or an elaborate cry for help. The Chronicle will continue monitoring the Washington annex." },
     { section: "NFL Fantasy Pulse", headline: "Quarterbacks Take the Week", body: "Trevor Lawrence threw for 306 yards and four touchdowns, C.J. Stroud delivered 312 and three, Drake Maye threw three scores and Caleb Williams returned with 305 yards. The position produced enough points to rescue managers and enough bench regret to ruin several breakfasts." },
-    { section: "NFL Fantasy Pulse", headline: "Volume Monsters", body: "Malik Nabers caught 12 passes for 165 yards, Jaxon Smith-Njigba caught 12 for 134 and Kenneth Walker ran for 128 yards and two scores. Christian McCaffrey added two rushing touchdowns, continuing his campaign against competitive balance." },
-    { section: "Through the Wire", headline: "The doctor said I had blood clots, but I ain't…", body: "The Kanye reference writes the headline, but Jalen Hurts' diagnosis is not a punchline. Hurts was diagnosed with a calf DVT and bilateral pulmonary emboli, was placed on injured reserve and faces an extended absence while receiving anticoagulation. The entire league wishes him a safe and complete recovery." },
-    { section: "Injury Ward", headline: "Receivers Take Heavy Damage", body: "Davante Adams suffered a ruptured hamstring with a reported six-to-ten-week timetable. Mike Evans aggravated his Achilles after producing 94 receiving yards, Terry McLaurin left Monday night with a knee injury and Deebo Samuel remained sidelined by a hamstring issue. Puka Nacua stands to inherit even more work in Los Angeles." },
-    { section: "Injury Ward", headline: "Backfields Under Construction", body: "Saquon Barkley missed Week 6 with a hamstring injury, Breece Hall remained out with a quadriceps problem, Jacory Croskey-Merritt landed on injured reserve with a groin injury and Will Shipley is expected to miss multiple weeks with a partial plantar fascia tear. Every healthy running back is now one Sunday away from becoming somebody's entire personality." },
-    { section: "Notable Return", headline: "Caleb Comes Back Swinging", body: "Caleb Williams returned after missing three games with a hamstring injury and completed 30 of 36 passes for 305 yards. Taylor Park Boys left the production on the bench, because even first-place teams deserve material for the Bench column." }
+    { section: "NFL Fantasy Pulse", headline: "Volume Monsters", body: "Malik Nabers caught 12 passes for 165 yards, Jaxon Smith-Njigba caught 12 for 134 and Kenneth Walker ran for 128 yards and two scores. Christian McCaffrey added two rushing touchdowns, continuing his campaign against competitive balance." }
   ],
+  tradeGuide: {
+    headline: "Trading for Dummies",
+    deck: "A brightly illustrated remedial lesson for twelve frightened children who have gone six weeks without completing one trade.",
+    lessons: [
+      { number:"1", headline:"Two Toys for One Better Toy", body:"Package two useful players for one superior starter when your bench is overflowing. Points trapped on the bench are imaginary points.", example:"Depth → Star" },
+      { number:"2", headline:"Share the Big Toy", body:"If one superstar is surrounded by several lineup emergencies, trade concentrated value for multiple real starters. One hero cannot fill nine positions.", example:"Star → Depth" },
+      { number:"3", headline:"The Fair Swap Exists", body:"A receiver-rich roster and a running-back-rich roster can exchange equal value and both improve. Nobody has to be tricked, robbed or sent to timeout.", example:"Need ↔ Need" }
+    ],
+    footer:"Today's vocabulary word is MUTUAL BENEFIT. Sound it out slowly. A trade can help both teams. Please stop hugging your bench players like stuffed animals."
+  },
+  injuryReport: {
+    headline:"Through the (Injury) Wire",
+    quote:"“The doctor said I had blood clots, but I ain't…”",
+    intro:"The lyric supplies the headline; the medical situations below are serious. Chestnut Farms wishes every injured player a safe and complete recovery.",
+    groups:[
+      { label:"Major Injuries / Extended Absences", injuries:[
+        {player:"Jalen Hurts",position:"QB · Eagles",injury:"Calf DVT with bilateral pulmonary emboli; placed on injured reserve.",impact:"Extended absence expected while receiving anticoagulation."},
+        {player:"Davante Adams",position:"WR · Rams",injury:"Ruptured hamstring.",impact:"Reported six-to-ten-week absence; Puka Nacua inherits even more volume."},
+        {player:"Mike Evans",position:"WR · 49ers",injury:"Aggravated Achilles injury after 94 receiving yards on Monday night.",impact:"Exited and did not return; expected to miss time."},
+        {player:"Terry McLaurin",position:"WR · Commanders",injury:"Carted off with a knee injury Monday night.",impact:"Severity and return timeline remain uncertain."},
+        {player:"Jacory Croskey-Merritt",position:"RB · Commanders",injury:"Groin injury; placed on injured reserve.",impact:"Washington's backfield depth takes another hit."},
+        {player:"Will Shipley",position:"RB · Eagles",injury:"Partial plantar fascia tear.",impact:"Expected to miss multiple weeks."}
+      ]},
+      { label:"Other Fantasy-Relevant Absences", injuries:[
+        {player:"Saquon Barkley",position:"RB · Eagles",injury:"Hamstring injury.",impact:"Missed Week 6."},
+        {player:"Deebo Samuel",position:"WR · 49ers",injury:"Hamstring injury.",impact:"Missed Week 6 and may remain out multiple weeks."},
+        {player:"Lamar Jackson",position:"QB · Ravens",injury:"Ankle injury.",impact:"Missed a second consecutive game."},
+        {player:"Baker Mayfield",position:"QB · Buccaneers",injury:"Dislocated thumb.",impact:"Remains sidelined."},
+        {player:"Breece Hall",position:"RB · Jets",injury:"Quadriceps injury.",impact:"Missed Week 6."},
+        {player:"Rashee Rice",position:"WR · Chiefs",injury:"Hamstring injury.",impact:"Missed Week 6."},
+        {player:"Jalen McMillan",position:"WR · Buccaneers",injury:"PCL sprain; injured reserve.",impact:"Expected six-to-eight-week absence."}
+      ]}
+    ],
+    returnNote:{player:"Caleb Williams · QB, Bears",detail:"Returned after missing three games with a hamstring injury and completed 30 of 36 passes for 305 yards. Taylor Park Boys left the comeback on the bench, because first place apparently needed extra decoration."}
+  },
   briefs: [
     { headline: "New sheriff", body: "Taylor Park Boys owns first place and the league scoring lead at 890.50." },
     { headline: "Five straight", body: "Dave Sr. has climbed to fourth after beginning the season in the basement." },
@@ -179,12 +211,14 @@ export const issues: Issue[] = [{
     down:[{team:"Gibbs Me Her Kittle",detail:"Five straight losses"},{team:"Achanesaw Massacre",detail:"Four straight losses"},{team:"Team PatSmear",detail:"0–6 head-to-head"},{team:"Let's Cut to the Chase",detail:"League-low 87.00"}]
   },
   awards: [
-    {label:"Manager of the Week",winner:"Darren Pnad",detail:"A league-high 150.90, a win over Jake and a climb into second place."},
+    {label:"Manager of the Week",winner:"Darren Aglione",detail:"A league-high 150.90, a win over Jake and a climb into second place."},
     {label:"New Sheriff",winner:"Stefan Balestra",detail:"First place, 890.50 points and the league's strongest overall résumé."},
     {label:"Streak of the Week",winner:"Dave Campbell Sr.",detail:"Five straight wins after another perfect 2–0 result."},
     {label:"Monday Thief",winner:"Anthony Innamorati",detail:"Lost his matchup but cleared the median by 1.05 to salvage the week."},
     {label:"Efficient Collapse",winner:"Nate Watson",detail:"Lost head-to-head and missed the median by exactly 1.05."},
-    {label:"Humanity Avoidance",winner:"Pat Brown",detail:"Four official wins without defeating another manager."}
+    {label:"Humanity Avoidance",winner:"Pat Brown",detail:"Four official wins without defeating another manager."},
+    {label:"Resurrection Award",winner:"Dave Campbell Jr.",detail:"A fourth straight win has dragged Brown Rice from punchline to playoff position."},
+    {label:"Carriage Breakdown",winner:"Jon Naval",detail:"The luckiest baby alive finally landed face-first with a league-low 87.00."}
   ],
   leaders: [
     {position:"QB",player:"Trevor Lawrence",team:"Achanesaw Massacre",points:38.40},
