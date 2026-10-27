@@ -14,18 +14,39 @@ export function WeeklyAwards({ issue }: { issue: Issue }) { return <section clas
 
 function ManagerEfficiency({ issue }: { issue: Issue }) {
   if (!issue.managerEfficiency) return null;
+  const marks: Record<string, string> = {
+    "Drake It Till You Make It": "DRK",
+    "Achanesaw Massacre": "ACH",
+    "Taylor Park Boys": "TPB",
+    "RI Lion’s": "RIL",
+    "Show Me Your Tet": "TET",
+    "Cooking Up Collusion": "CUC",
+    "Team PatSmear": "PAT",
+    "Colonel Corn": "CC",
+    "Gibbs Me Her Kittle": "GMK",
+    "Let’s Cut to the Chase": "LCC",
+    "Brown Rice": "BR",
+    "The Price Is Right": "PIR",
+  };
+  const rows = [...issue.managerEfficiency].sort((a, b) => b.score - a.score);
   return <section className="efficiency-desk section-block" aria-labelledby="efficiency-title">
-    <div className="section-title"><span>Coaching Accountability Office</span><h2 id="efficiency-title">Leaving Points on the Table</h2></div>
-    <p className="section-intro">Actual score divided by the best legal lineup available from each active roster. The orange bar shows how much of the weekly ceiling each manager captured.</p>
-    <div className="efficiency-list">{issue.managerEfficiency.map((row, index) => {
+    <header className="efficiency-mast">
+      <span>Week 7 · Team Performance</span>
+      <h2 id="efficiency-title">Leaving Points on the Table</h2>
+      <p>Ranked by actual points scored. Each orange bar shows the share of that manager&apos;s best legal lineup that reached the field.</p>
+    </header>
+    <div className="efficiency-list">{rows.map((row, index) => {
       const left = row.optimal - row.score;
       return <article key={row.team}>
         <b className="efficiency-rank">{index + 1}</b>
-        <div className="efficiency-copy"><h3>{row.team}</h3><span>{row.manager}</span><p>{row.verdict}</p></div>
-        <div className="efficiency-data">
-          <div><strong>{row.score.toFixed(2)} <small>of {row.optimal.toFixed(2)} MAX</small></strong><b>{row.efficiency.toFixed(1)}%</b></div>
-          <div className="efficiency-track" aria-label={`${row.efficiency.toFixed(1)} percent lineup efficiency`}><i style={{width:`${row.efficiency}%`}}/></div>
-          <span>{left.toFixed(2)} points left</span>
+        <div className="efficiency-mark" aria-hidden="true">{marks[row.team] ?? row.team.slice(0, 3).toUpperCase()}</div>
+        <div className="efficiency-card">
+          <div className="efficiency-name"><h3>{row.team}</h3><span>{row.manager}</span></div>
+          <div className="efficiency-track" aria-label={`${row.efficiency.toFixed(1)} percent lineup efficiency`}>
+            <i style={{width:`${row.efficiency}%`}}/>
+            <strong>{row.score.toFixed(2)} <small>of {row.optimal.toFixed(2)} MAX</small></strong>
+          </div>
+          <div className="efficiency-foot"><b>{row.efficiency.toFixed(1)}% efficient</b><span>{left.toFixed(2)} points left</span></div>
         </div>
       </article>;
     })}</div>
