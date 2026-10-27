@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { issues, type Issue } from "@/content/issues";
 
 export function IssueHeader({ issue }: { issue: Issue }) { return <div className="issue-meta"><span>Vol. IX · No. {issue.issueNumber}</span><strong>{issue.week} · {issue.season}</strong><span>{issue.date}</span></div>; }
@@ -14,21 +15,22 @@ export function WeeklyAwards({ issue }: { issue: Issue }) { return <section clas
 
 function ManagerEfficiency({ issue }: { issue: Issue }) {
   if (!issue.managerEfficiency) return null;
-  const marks: Record<string, string> = {
-    "Drake It Till You Make It": "DRK",
-    "Achanesaw Massacre": "ACH",
-    "Taylor Park Boys": "TPB",
-    "RI Lion’s": "RIL",
-    "Show Me Your Tet": "TET",
-    "Cooking Up Collusion": "CUC",
-    "Team PatSmear": "PAT",
-    "Colonel Corn": "CC",
-    "Gibbs Me Her Kittle": "GMK",
-    "Let’s Cut to the Chase": "LCC",
-    "Brown Rice": "BR",
-    "The Price Is Right": "PIR",
+  const logos: Record<string, { image: string; x: number; y: number }> = {
+    "Drake It Till You Make It": { image:"/issues/2026-week-07/a-league-standings-top.png", x:150, y:925 },
+    "Achanesaw Massacre": { image:"/issues/2026-week-07/a-league-standings-top.png", x:150, y:1150 },
+    "Taylor Park Boys": { image:"/issues/2026-week-07/a-league-standings-top.png", x:150, y:700 },
+    "RI Lion’s": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:1680 },
+    "Show Me Your Tet": { image:"/issues/2026-week-07/a-league-standings-top.png", x:150, y:1600 },
+    "Cooking Up Collusion": { image:"/issues/2026-week-07/a-league-standings-top.png", x:150, y:1375 },
+    "Team PatSmear": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:1450 },
+    "Colonel Corn": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:1220 },
+    "Gibbs Me Her Kittle": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:550 },
+    "Let’s Cut to the Chase": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:1000 },
+    "Brown Rice": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:780 },
+    "The Price Is Right": { image:"/issues/2026-week-07/a-league-standings-bottom.png", x:150, y:1900 },
   };
   const rows = [...issue.managerEfficiency].sort((a, b) => b.score - a.score);
+  const highestOptimal = Math.max(...rows.map((row) => row.optimal));
   return <section className="efficiency-desk section-block" aria-labelledby="efficiency-title">
     <header className="efficiency-mast">
       <span>Week 7 · Team Performance</span>
@@ -37,12 +39,20 @@ function ManagerEfficiency({ issue }: { issue: Issue }) {
     </header>
     <div className="efficiency-list">{rows.map((row, index) => {
       const left = row.optimal - row.score;
+      const logo = logos[row.team];
+      const logoStyle = logo ? {
+        "--logo-image": `url(${logo.image})`,
+        "--logo-x": `${30 - logo.x * .6}px`,
+        "--logo-y": `${30 - logo.y * .6}px`,
+        "--logo-mobile-x": `${23 - logo.x * .46}px`,
+        "--logo-mobile-y": `${23 - logo.y * .46}px`,
+      } as CSSProperties : undefined;
       return <article key={row.team}>
         <b className="efficiency-rank">{index + 1}</b>
-        <div className="efficiency-mark" aria-hidden="true">{marks[row.team] ?? row.team.slice(0, 3).toUpperCase()}</div>
+        <div className="efficiency-mark" style={logoStyle} role="img" aria-label={`${row.team} logo`}/>
         <div className="efficiency-card">
           <div className="efficiency-name"><h3>{row.team}</h3><span>{row.manager}</span></div>
-          <div className="efficiency-track" aria-label={`${row.efficiency.toFixed(1)} percent lineup efficiency`}>
+          <div className="efficiency-track" style={{width:`${(row.optimal / highestOptimal) * 100}%`}} aria-label={`${row.efficiency.toFixed(1)} percent lineup efficiency`}>
             <i style={{width:`${row.efficiency}%`}}/>
             <strong>{row.score.toFixed(2)} <small>of {row.optimal.toFixed(2)} MAX</small></strong>
           </div>
