@@ -159,6 +159,22 @@ tbody th { font-weight:800; }
 .performance-grid article b { color:#ffd27f; font-family:Arial,sans-serif; }
 .performance-grid article span { color:#c8bdac; font:700 10px/1 Arial,sans-serif; text-transform:uppercase; }
 .performance-grid article p { margin:6px 0 0; font-size:.84rem; line-height:1.35; }
+.efficiency-desk { padding:28px; color:#f7f1e4; background:#0b132b; border:4px solid #25345e; }
+.efficiency-desk .section-title { border-color:#f7f1e4; }
+.efficiency-desk .section-intro { color:#b7c4df; }
+.efficiency-list { display:grid; gap:2px; background:#26345e; border:1px solid #26345e; }
+.efficiency-list article { display:grid; grid-template-columns:44px minmax(220px,.8fr) minmax(320px,1.2fr); gap:16px; align-items:center; padding:15px 18px; background:#101a38; }
+.efficiency-rank { color:#9bb0d5; font:900 1.65rem/1 Arial,sans-serif; text-align:center; }
+.efficiency-copy h3 { margin:0; color:#fff; font:900 1.1rem/1 Arial,sans-serif; }
+.efficiency-copy>span { color:#9bb0d5; font:700 .72rem/1 Arial,sans-serif; text-transform:uppercase; letter-spacing:.08em; }
+.efficiency-copy p { margin:7px 0 0; color:#cbd5e8; font-size:.82rem; line-height:1.3; }
+.efficiency-data>div:first-child { display:flex; justify-content:space-between; gap:12px; align-items:end; font-family:Arial,sans-serif; }
+.efficiency-data strong { color:#ffb252; font-size:1.04rem; }
+.efficiency-data strong small { font-size:.78rem; }
+.efficiency-data b { color:#ffb252; font-size:1rem; }
+.efficiency-track { height:18px; margin:7px 0 5px; overflow:hidden; border-radius:999px; background:#2b3b69; }
+.efficiency-track i { display:block; height:100%; border-radius:inherit; background:#ffae4b; }
+.efficiency-data>span { color:#aab9d5; font:700 .69rem/1 Arial,sans-serif; text-transform:uppercase; letter-spacing:.08em; }
 .trade-guide { padding:30px; overflow:hidden; border:5px solid #24211c; background:#ffd85c; color:#24211c; box-shadow:inset 0 0 0 4px #fff4c4; transform:rotate(-.15deg); }
 .trade-mast { text-align:center; padding:6px 4% 24px; border-bottom:5px solid #24211c; }
 .trade-mast>span { display:inline-block; padding:5px 10px; background:#e8533f; color:white; font:900 10px/1 Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; transform:rotate(-1deg); }
@@ -227,6 +243,8 @@ tbody th { font-weight:800; }
   .spotlight-body,.photo-feature-grid,.alternate-grid,.luck-file,.b-league-grid { grid-template-columns:1fr; }
   .traffic-stats { grid-template-columns:repeat(3,1fr); }
   .performance-grid { grid-template-columns:1fr; }
+  .efficiency-list article { grid-template-columns:38px 1fr; }
+  .efficiency-data { grid-column:2; }
   .trade-lessons,.injury-groups { grid-template-columns:1fr; }
   .injury-report>header { grid-template-columns:1fr; }
   .injury-report>header h2,.injury-report>header blockquote,.injury-report>header p { grid-column:1; grid-row:auto; }
@@ -268,6 +286,10 @@ tbody th { font-weight:800; }
   .awards article+article { border-left:0; border-top:1px solid rgb(255 255 255 / 28%); }
   .leader-grid { grid-template-columns:1fr; }
   .leader-grid article { border-right:0; }
+  .efficiency-desk { margin-left:-20px; margin-right:-20px; padding:22px 18px; }
+  .efficiency-list article { grid-template-columns:30px 1fr; gap:10px; padding:14px 10px; }
+  .efficiency-copy h3 { font-size:1rem; }
+  .efficiency-data strong { font-size:.9rem; }
   .issue-nav { font-size:9px; }
   .archive-page { padding-top:36px; }
   .archive-list article { grid-template-columns:1fr; }

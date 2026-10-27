@@ -1,3 +1,5 @@
+import { week7Issue } from "./week7";
+
 export type Result = { away: string; awayScore: number; home: string; homeScore: number; note?: string };
 export type Standing = { rank: number; team: string; record: string; points: number; pointsAgainst: number };
 export type HistoryRow = { manager: string; club: string; titles: string; playoffs: string; note: string };
@@ -27,9 +29,10 @@ export type Issue = {
   newsDesk?: { section: string; headline: string; body: string }[];
   tradeGuide?: { headline: string; deck: string; lessons: { number: string; headline: string; body: string; example: string }[]; footer: string };
   injuryReport?: { headline: string; quote: string; intro: string; groups: { label: string; injuries: { player: string; position: string; injury: string; impact: string }[] }[]; returnNote: { player: string; detail: string } };
+  managerEfficiency?: { team: string; manager: string; score: number; optimal: number; efficiency: number; verdict: string }[];
 };
 
-export const issues: Issue[] = [{
+export const issues: Issue[] = [week7Issue, {
   slug: "2026-week-06", issueNumber: 6, season: 2026, week: "Week 6", date: "October 20, 2026",
   median: "120.05",
   kicker: "Year XVI · Week Six · Median Line 120.05",
