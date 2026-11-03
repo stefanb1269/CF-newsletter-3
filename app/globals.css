@@ -213,6 +213,25 @@ tbody th { font-weight:800; }
 .return-note span { color:#3f6f52; font:900 10px/1 Arial,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
 .return-note h3 { margin:6px 0; font-size:1.35rem; }
 .return-note p { margin:0; }
+.nfl-feature { overflow:hidden; border:5px solid #162f52; background:#ece5d4; }
+.nfl-feature>header { padding:30px 5%; color:white; background:linear-gradient(135deg,#0c2b51 0%,#15599a 65%,#0c2b51 100%); border-bottom:7px solid #fff; box-shadow:0 4px 0 #d3a21f; }
+.nfl-feature>header>span { color:#f4c64f; font:900 11px/1 Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+.nfl-feature>header h2 { margin:8px 0 10px; font:900 clamp(3rem,8vw,7rem)/.82 Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif; letter-spacing:-.025em; text-transform:uppercase; }
+.nfl-feature>header p { max-width:850px; margin:0; font-size:1.2rem; font-style:italic; }
+.nfl-feature-copy { columns:2; column-gap:34px; padding:24px 5% 8px; }
+.nfl-feature-copy p { margin-top:0; }
+.nfl-moves { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin:10px 5% 26px; background:#162f52; border:2px solid #162f52; }
+.nfl-moves article { display:grid; grid-template-columns:1fr auto; gap:7px 16px; padding:18px; background:#f5efdf; }
+.nfl-moves strong { font:900 1.2rem/1 Arial,sans-serif; }
+.nfl-moves span { color:#15599a; font:900 .88rem/1 Arial,sans-serif; text-align:right; }
+.nfl-moves b { grid-column:1 / -1; color:#8b5b13; font:800 .76rem/1 Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.nfl-destinations { margin:0 5%; border-top:6px solid #d3a21f; }
+.nfl-destinations>h3 { margin:14px 0 8px; font:900 1.35rem/1 Arial,sans-serif; text-transform:uppercase; }
+.nfl-destinations article { display:grid; grid-template-columns:42px 1fr; gap:12px; padding:12px 0; border-top:1px solid #a69c88; }
+.nfl-destinations article>b { color:#15599a; font:900 1.7rem/1 Arial,sans-serif; text-align:center; }
+.nfl-destinations article strong { font:900 1.05rem/1 Arial,sans-serif; }
+.nfl-destinations article p { margin:4px 0 0; font-size:.87rem; }
+.nfl-feature>blockquote { margin:22px 5% 30px; padding:18px 22px; color:white; background:#162f52; border-left:7px solid #d3a21f; font:italic 700 1.1rem/1.4 Georgia,serif; }
 .history table th:first-child,.history table td:first-child,.history table th:nth-child(2),.history table td:nth-child(2),.history table th:last-child,.history table td:last-child { text-align:left; }
 .history table th:nth-child(3),.history table td:nth-child(3),.history table th:nth-child(4),.history table td:nth-child(4) { text-align:center; }
 .next-week { margin-top:42px; padding:28px 8%; text-align:center; border:4px double var(--rule); }
@@ -252,6 +271,8 @@ tbody th { font-weight:800; }
   .efficiency-mark { width:52px; height:52px; }
   .efficiency-name span { display:none; }
   .trade-lessons,.injury-groups { grid-template-columns:1fr; }
+  .nfl-feature-copy { columns:1; }
+  .nfl-moves { grid-template-columns:1fr; }
   .injury-report>header { grid-template-columns:1fr; }
   .injury-report>header h2,.injury-report>header blockquote,.injury-report>header p { grid-column:1; grid-row:auto; }
   .panic-grid { grid-template-columns:1fr 1fr; }

@@ -10,7 +10,7 @@ export const week7Issue: Issue = {
   kicker: "Year XVI · Week Seven · Median Line 123.92",
   headline: "Seventh Heaven, Seven Layers of Hell",
   deck: "Dave Sr. rides seven straight wins toward the summit while Nate completes a seven-loss descent into fantasy football’s basement furnace.",
-  hero: "/issues/2026-week-07/seventh-heaven-seven-layers.png",
+  hero: "/issues/2026-week-07/seventh-heaven-seven-layers.webp",
   heroAlt: "A green dragon football mascot climbs seven golden steps toward a championship trophy while a blue-and-gold ram mascot falls through seven fiery levels",
   caption: "Seven up, seven down: Drake It Till You Make It climbs toward the trophy while Gibbs Me Her Kittle discovers every floor beneath rock bottom.",
   lead: [

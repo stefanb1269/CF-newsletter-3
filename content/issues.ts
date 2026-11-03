@@ -1,4 +1,5 @@
 import { week7Issue } from "./week7";
+import { week8Issue } from "./week8";
 
 export type Result = { away: string; awayScore: number; home: string; homeScore: number; note?: string };
 export type Standing = { rank: number; team: string; record: string; points: number; pointsAgainst: number };
@@ -29,16 +30,17 @@ export type Issue = {
   newsDesk?: { section: string; headline: string; body: string }[];
   tradeGuide?: { headline: string; deck: string; lessons: { number: string; headline: string; body: string; example: string }[]; footer: string };
   injuryReport?: { headline: string; quote: string; intro: string; groups: { label: string; injuries: { player: string; position: string; injury: string; impact: string }[] }[]; returnNote: { player: string; detail: string } };
+  nflFeature?: { kicker: string; headline: string; deck: string; body: string[]; moves: { player: string; destination: string; return: string }[]; destinations: { team: string; fit: string }[]; closing: string };
   managerEfficiency?: { team: string; manager: string; score: number; optimal: number; efficiency: number; verdict: string }[];
 };
 
-export const issues: Issue[] = [week7Issue, {
+export const issues: Issue[] = [week8Issue, week7Issue, {
   slug: "2026-week-06", issueNumber: 6, season: 2026, week: "Week 6", date: "October 20, 2026",
   median: "120.05",
   kicker: "Year XVI · Week Six · Median Line 120.05",
   headline: "Changing of the Guard",
   deck: "Taylor Park Boys seize first place and the scoring crown while Jake and Nate discover that a hot start is not a lifetime appointment.",
-  hero: "/issues/2026-week-06/changing-of-the-guard.png",
+  hero: "/issues/2026-week-06/changing-of-the-guard.webp",
   heroAlt: "Taylor Park Boys characters claiming the Chestnut Farms trophy at a trailer park as the former leaders surrender their positions",
   caption: "Power changes hands at Chestnut Farms: Taylor Park Boys claim the trophy, the top seed and the league scoring lead while the old guard staggers backward.",
   lead: [
@@ -237,7 +239,7 @@ export const issues: Issue[] = [week7Issue, {
   kicker: "Year XVI · Week Five · Median Line 143.88",
   headline: "Underdog Uprising",
   deck: "Six matchups. Six upsets. The lower-ranked club wins every game and blows the Chestnut Farms standings wide open.",
-  hero: "/issues/2026-week-05/underdog-uprising-final.png",
+  hero: "/issues/2026-week-05/underdog-uprising-final.webp",
   heroAlt: "Six victorious fantasy football mascots charging over six fallen favorite banners as a baby runner holds up a quarter",
   caption: "The Week 5 rebellion: RI Lion’s, Let’s Cut to the Chase, The Price Is Right, Colonel Corn, Drake It Till You Make It and Brown Rice swept the six higher-ranked favorites.",
   lead: [
@@ -411,7 +413,7 @@ export const issues: Issue[] = [week7Issue, {
   kicker: "Year XVI · Week Four · Median Line 128.75",
   headline: "London Calling",
   deck: "Taylor Park Boys conquer the reigning champion from across the Atlantic, scoring 195.95 and taking the league’s total-points lead.",
-  hero: "/issues/2026-week-04/london-calling.png",
+  hero: "/issues/2026-week-04/london-calling.webp",
   heroAlt: "Vintage sports illustration of a blue-and-white football hero defeating a pink mascot in a London stadium",
   caption: "Taylor Park Boys routed Team PatSmear 195.95–156.90 while Stefan Balestra watched the Colts in London. Chronicle illustration inspired by the clubs’ blue-and-white and pink mascot imagery.",
   lead: [
@@ -510,7 +512,7 @@ export const issues: Issue[] = [week7Issue, {
   kicker: "Year XVI · Week Three · Median Line 124.225",
   headline: "The Great Escape",
   deck: "Jon Naval beats RI Lion’s by 0.55—and clears the weekly median by an even thinner 0.275—to steal a perfect 2–0 week.",
-  hero: "/issues/2026-week-03/the-great-escape.png",
+  hero: "/issues/2026-week-03/the-great-escape.webp",
   heroAlt: "Vintage sports illustration of a baby-faced football runner escaping through a narrow opening as an orange lion gives chase",
   caption: "Two escapes, each by less than a point: Let’s Cut to the Chase survived RI Lion’s 124.50–123.95 and edged the 124.225 median. Chronicle illustration inspired by the clubs’ baby and lion imagery.",
   lead: [
@@ -577,7 +579,7 @@ export const issues: Issue[] = [week7Issue, {
   kicker: "Year XVI · Week Two · Median Line 134.575",
   headline: "The Lion’s Share",
   deck: "Nico Erausquin roars to the week’s highest score, 159.05, and beats Colonel Corn even after Josh Allen drops 48.30.",
-  hero: "/issues/2026-week-02/lions-share.png",
+  hero: "/issues/2026-week-02/lions-share.webp",
   heroAlt: "Editorial illustration of an orange lion defeating a golden ear of corn beneath stadium lights",
   caption: "RI Lion’s claimed the week’s high score in a 159.05–127.20 victory over Colonel Corn. Chronicle illustration using the clubs’ lion and corn imagery as references.",
   lead: [
@@ -641,7 +643,7 @@ export const issues: Issue[] = [week7Issue, {
   kicker: "Year XVI · Opening Week · Median Line 135.90",
   headline: "Massacre at the Farm",
   deck: "Jake Brierly opens the league’s 16th season with 180.95 points, the week’s high score and an unmistakable warning to the other eleven clubs.",
-  hero: "/issues/2026-week-01/monday-night-miracle.png",
+  hero: "/issues/2026-week-01/monday-night-miracle.webp",
   heroAlt: "Vintage newspaper-style illustration of a football receiver making a dramatic catch under stadium lights",
   caption: "Achanesaw Massacre did not ease into Year 16. Jake Brierly’s 180.95 led the league by 6.05 points. Chronicle illustration.",
   lead: [
