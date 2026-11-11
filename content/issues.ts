@@ -1,5 +1,6 @@
 import { week7Issue } from "./week7";
 import { week8Issue } from "./week8";
+import { week9Issue } from "./week9";
 
 export type Result = { away: string; awayScore: number; home: string; homeScore: number; note?: string };
 export type Standing = { rank: number; team: string; record: string; points: number; pointsAgainst: number };
@@ -10,6 +11,7 @@ export type Issue = {
   slug: string; issueNumber: number; season: number; week: string; date: string;
   median: string;
   kicker: string; headline: string; deck: string; hero: string; heroAlt: string; caption: string;
+  heroOverlay?: { eyebrow: string; score: string; subline: string };
   lead: string[]; quote: string; quoteBy: string;
   stories: { section: string; headline: string; body: string }[];
   briefs: { headline: string; body: string }[];
@@ -30,11 +32,13 @@ export type Issue = {
   newsDesk?: { section: string; headline: string; body: string }[];
   tradeGuide?: { headline: string; deck: string; lessons: { number: string; headline: string; body: string; example: string }[]; footer: string };
   injuryReport?: { headline: string; quote: string; intro: string; groups: { label: string; injuries: { player: string; position: string; injury: string; impact: string }[] }[]; returnNote: { player: string; detail: string } };
-  nflFeature?: { kicker: string; headline: string; deck: string; body: string[]; moves: { player: string; destination: string; return: string }[]; destinations: { team: string; fit: string }[]; closing: string };
+  nflFeature?: { kicker: string; headline: string; deck: string; body: string[]; moves: { player: string; destination: string; return: string }[]; destinations: { team: string; fit: string }[]; destinationHeading?: string; closing: string };
   managerEfficiency?: { team: string; manager: string; score: number; optimal: number; efficiency: number; verdict: string }[];
+  commissionerReview?: { headline: string; deck: string; ruling: string; body: string[] };
+  nextWeekTeaser?: { kicker: string; headline: string; body: string };
 };
 
-export const issues: Issue[] = [week8Issue, week7Issue, {
+export const issues: Issue[] = [week9Issue, week8Issue, week7Issue, {
   slug: "2026-week-06", issueNumber: 6, season: 2026, week: "Week 6", date: "October 20, 2026",
   median: "120.05",
   kicker: "Year XVI · Week Six · Median Line 120.05",
