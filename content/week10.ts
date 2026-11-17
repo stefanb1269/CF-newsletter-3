@@ -13,7 +13,6 @@ export const week10Issue: Issue = {
   hero: "/issues/2026-week-10/babies-cant-eat-brown-rice.webp",
   heroAlt: "Five Brown Rice fantasy stars laugh over bowls of brown rice while Jon’s crying baby mascot sits waist-deep in a giant wok beneath a new league high-score banner",
   caption: "Babies can’t eat Brown Rice: Dave Jr.’s five-man feast produced a new league high while Jon’s baby mascot discovered the wrong end of the wok.",
-  heroOverlay: { eyebrow: "Babies Can’t Eat Brown Rice", score: "Brown Rice 224.50 — Jon 183.35", subline: "New league high score · 224.50" },
   lead: [
     "The advertised Game of the Week never arrived, so Dave Campbell Jr. and Jon Naval built a better one. Brown Rice scored a franchise-record 224.50, Let’s Cut to the Chase answered with 183.35 and the two clubs combined for 407.85—the kind of total that turns every other matchup into background programming.",
     "Dave’s victory was a full-card eruption: Deshaun Watson, Christian McCaffrey, E. Johnson, Isaiah Likely and George Pickens combined for 199.10. Pickens alone produced 47.50 after arriving in the deal that sent Rashee Rice and Germie Bernard away, more than the final 41.15-point margin and a rather loud first receipt for the trade file.",
