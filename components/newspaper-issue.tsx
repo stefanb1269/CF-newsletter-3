@@ -91,7 +91,7 @@ function CommissionerReview({ issue }: { issue: Issue }) { if (!issue.commission
 
 function TradeGuide({ issue }: { issue: Issue }) { if (!issue.tradeGuide) return null; const guide = issue.tradeGuide; return <section className="trade-guide section-block"><div className="trade-mast"><span>The Sunday Funnies · Ages 5–12 Managers</span><h2>{guide.headline}</h2><p>{guide.deck}</p></div><div className="trade-lessons">{guide.lessons.map((lesson) => <article key={lesson.number}><b>{lesson.number}</b><div><span>{lesson.example}</span><h3>{lesson.headline}</h3><p>{lesson.body}</p></div></article>)}</div><p className="trade-footer">{guide.footer}</p></section>; }
 
-function InjuryReport({ issue }: { issue: Issue }) { if (!issue.injuryReport) return null; const report = issue.injuryReport; return <section className="injury-report section-block"><header><span>NFL Fantasy Medical Desk</span><h2>{report.headline}</h2><blockquote>{report.quote}</blockquote><p>{report.intro}</p></header><div className="injury-groups">{report.groups.map((group) => <section key={group.label}><h3>{group.label}</h3><ul>{group.injuries.map((item) => <li key={item.player}><div><strong>{item.player}</strong><span>{item.position}</span></div><p><b>{item.injury}</b> {item.impact}</p></li>)}</ul></section>)}</div><aside className="return-note"><span>Notable Return</span><h3>{report.returnNote.player}</h3><p>{report.returnNote.detail}</p></aside></section>; }
+function InjuryReport({ issue }: { issue: Issue }) { if (!issue.injuryReport) return null; const report = issue.injuryReport; return <section className="injury-report section-block"><header><span>NFL Fantasy Medical Desk</span><h2>{report.headline}</h2><blockquote>{report.quote}</blockquote><p>{report.intro}</p></header><div className="injury-groups">{report.groups.map((group) => <section key={group.label}><h3>{group.label}</h3><ul>{group.injuries.map((item) => <li key={item.player}><div><strong>{item.player}</strong><span>{item.position}</span></div><p><b>{item.injury}</b> {item.impact}</p></li>)}</ul></section>)}</div><aside className="return-note"><span>{report.returnNote.label ?? "Notable Return"}</span><h3>{report.returnNote.player}</h3><p>{report.returnNote.detail}</p></aside></section>; }
 
 function NFLFeature({ issue }: { issue: Issue }) {
   if (!issue.nflFeature) return null;
@@ -106,7 +106,7 @@ function NFLFeature({ issue }: { issue: Issue }) {
 }
 
 export function NewspaperIssue({ issue }: { issue: Issue }) {
-  const upcoming = issue.issueNumber === 9
+  const upcoming = issue.comingSunday ?? (issue.issueNumber === 9
     ? { title: "Week 10: First Place Goes Head-to-Head", body: "Stefan and Darren finally meet with the top of the standings directly at stake. The next issue follows the collision and every playoff ripple behind it." }
     : issue.issueNumber === 8
       ? { title: "Week 9: Can Anyone Match 206?", body: "Stefan and Darren share the best record, five teams remain within four scoring decisions and the trade deadline could move Jonathan Taylor before the next issue." }
@@ -120,7 +120,7 @@ export function NewspaperIssue({ issue }: { issue: Issue }) {
               ? { title: "Week 3: The Unbeaten Club Is Hunted", body: "Nate stands alone at 4–0. Nico and Jon are surging, and every lineup will face another test as the injury reports develop." }
               : issue.issueNumber === 1
                 ? { title: "Week 2: The New Order Gets Tested", body: "Five clubs are perfect, four promoted managers have announced themselves, and the reigning champion already has a loss. The next issue follows every response." }
-                : { title: "Week 6: Nobody Is Safe", body: "Two leaders sit at 7–3, six clubs are tied at 4–6 and the defending champion has yet to win a head-to-head game. The uprising has turned into a race." };
+                : { title: "Week 6: Nobody Is Safe", body: "Two leaders sit at 7–3, six clubs are tied at 4–6 and the defending champion has yet to win a head-to-head game. The uprising has turned into a race." });
 
   return <main id="main-content" className="paper">
     <IssueHeader issue={issue}/>
