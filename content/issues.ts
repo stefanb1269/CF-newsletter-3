@@ -2,6 +2,7 @@ import { week7Issue } from "./week7";
 import { week8Issue } from "./week8";
 import { week9Issue } from "./week9";
 import { week10Issue } from "./week10";
+import { week11Issue } from "./week11";
 
 export type Result = { away: string; awayScore: number; home: string; homeScore: number; note?: string };
 export type Standing = { rank: number; team: string; record: string; points: number; pointsAgainst: number };
@@ -23,6 +24,7 @@ export type Issue = {
   history: HistoryRow[];
   spotlight?: { kicker: string; headline: string; deck: string; body: string[]; stats: { value: string; label: string }[] };
   photoFeature?: { kicker: string; headline: string; image: string; alt: string; caption: string; body: string };
+  bumpChart?: { image: string; alt: string; caption: string };
   panicMeter?: { team: string; level: string; score: number; detail: string }[];
   noMedian?: { intro: string; standings: AlternateStanding[]; notes: { headline: string; body: string }[] };
   luckFile?: { headline: string; deck: string; rows: { week: string; decision: string; margin: string }[]; conclusion: string };
@@ -40,7 +42,7 @@ export type Issue = {
   comingSunday?: { title: string; body: string };
 };
 
-export const issues: Issue[] = [week10Issue, week9Issue, week8Issue, week7Issue, {
+export const issues: Issue[] = [week11Issue, week10Issue, week9Issue, week8Issue, week7Issue, {
   slug: "2026-week-06", issueNumber: 6, season: 2026, week: "Week 6", date: "October 20, 2026",
   median: "120.05",
   kicker: "Year XVI · Week Six · Median Line 120.05",

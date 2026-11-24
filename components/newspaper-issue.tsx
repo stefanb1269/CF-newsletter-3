@@ -13,6 +13,17 @@ export function PowerRankings({ issue }: { issue: Issue }) { return <section cla
 
 export function WeeklyAwards({ issue }: { issue: Issue }) { return <section className="awards section-block" aria-labelledby="awards-title"><div className="section-title"><span>Honor & Infamy</span><h2 id="awards-title">The Weekly Laurels</h2></div><div className="award-grid">{issue.awards.map((award) => <article key={award.label}><span>{award.label}</span><h3>{award.winner}</h3><p>{award.detail}</p></article>)}</div></section>; }
 
+function BumpChart({ issue }: { issue: Issue }) {
+  if (!issue.bumpChart) return null;
+  return <section className="bump-chart section-block" aria-labelledby="bump-chart-title">
+    <div className="section-title"><span>Season Movement · Weeks 1–11</span><h2 id="bump-chart-title">Race Through the Ranks</h2></div>
+    <figure>
+      <Image src={issue.bumpChart.image} alt={issue.bumpChart.alt} width={1600} height={2100}/>
+      <figcaption>{issue.bumpChart.caption}</figcaption>
+    </figure>
+  </section>;
+}
+
 function ManagerEfficiency({ issue }: { issue: Issue }) {
   if (!issue.managerEfficiency) return null;
   const logos: Record<string, { image: string; x: number; y: number }> = {
@@ -133,7 +144,7 @@ export function NewspaperIssue({ issue }: { issue: Issue }) {
     <div className="front-grid"><article className="lead-copy"><p className="byline">By The Chronicle Sports Desk</p>{issue.lead.map((p, i) => <p className={i === 0 ? "dropcap" : ""} key={p}>{p}</p>)}<blockquote>“{issue.quote}”<cite>— {issue.quoteBy}</cite></blockquote></article><aside className="briefs"><h2>News Briefs</h2>{issue.briefs.map((brief) => <article key={brief.headline}><h3>{brief.headline}</h3><p>{brief.body}</p></article>)}</aside></div>
     <Spotlight issue={issue}/><LuckFile issue={issue}/><Scoreboard issue={issue}/>
     <section className="story-section section-block"><div className="section-title"><span>Every Game, Examined</span><h2>Complete Matchup Autopsies</h2></div><div className="story-grid">{issue.stories.map((story) => <article key={story.headline}><span>{story.section}</span><h3>{story.headline}</h3><p>{story.body}</p></article>)}</div></section>
-    <CommissionerReview issue={issue}/><PerformanceDesk issue={issue}/><ManagerEfficiency issue={issue}/><PositionLeaders issue={issue}/>{issue.awards.length > 0 && <WeeklyAwards issue={issue}/>}<div className="analysis-grid"><StandingsTable issue={issue}/><PowerRankings issue={issue}/></div><TrafficJam issue={issue}/><PanicMeter issue={issue}/><NoMedian issue={issue}/><PhotoFeature issue={issue}/><NewsDesk issue={issue}/><NFLFeature issue={issue}/><InjuryReport issue={issue}/><BLeague issue={issue}/><StockMarket issue={issue}/>{issue.history.length > 0 && <HistoryLedger issue={issue}/>} 
+    <CommissionerReview issue={issue}/><PerformanceDesk issue={issue}/><ManagerEfficiency issue={issue}/><PositionLeaders issue={issue}/>{issue.awards.length > 0 && <WeeklyAwards issue={issue}/>}<BumpChart issue={issue}/><div className="analysis-grid"><StandingsTable issue={issue}/><PowerRankings issue={issue}/></div><TrafficJam issue={issue}/><PanicMeter issue={issue}/><NoMedian issue={issue}/><PhotoFeature issue={issue}/><NewsDesk issue={issue}/><NFLFeature issue={issue}/><InjuryReport issue={issue}/><BLeague issue={issue}/><StockMarket issue={issue}/>{issue.history.length > 0 && <HistoryLedger issue={issue}/>} 
     {issue.nextWeekTeaser && <section className="week-teaser section-block"><span>{issue.nextWeekTeaser.kicker}</span><h2>{issue.nextWeekTeaser.headline}</h2><p>{issue.nextWeekTeaser.body}</p></section>}
     <section className="next-week"><span>Coming Sunday</span><h2>{upcoming.title}</h2><p>{upcoming.body}</p></section>
     <nav className="issue-nav" aria-label="Issue navigation">{issues[issues.findIndex((entry) => entry.slug === issue.slug) + 1] ? <Link href={`/issues/${issues[issues.findIndex((entry) => entry.slug === issue.slug) + 1].slug}`}>← Previous issue</Link> : <span>← Previous issue</span>}<Link href="/archive">View the archive</Link>{issues[issues.findIndex((entry) => entry.slug === issue.slug) - 1] ? <Link href={`/issues/${issues[issues.findIndex((entry) => entry.slug === issue.slug) - 1].slug}`}>Next issue →</Link> : <span>Next issue →</span>}</nav>
